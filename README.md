@@ -15,7 +15,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 
 | Day | Title | Link |
 |-----|-------|------|
-| 1 | Why System Design Matters | [Read](./Why_System_Design_Matters.md) |
+| 1 | Why System Design Matters | [Read](./Day1_Why_System_Design_Matters.md) |
 
 ---
 
