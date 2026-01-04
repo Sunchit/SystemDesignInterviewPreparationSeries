@@ -16,6 +16,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | Day | Title | Link |
 |-----|-------|------|
 | 1 | Why System Design Matters | [Read](./Day1_Why_System_Design_Matters.md) |
+| 2 | Key Characteristics of Great Systems (SCALED) | [Read](./Day2_Key_Characteristics_SCALED.md) |
 
 ---
 
