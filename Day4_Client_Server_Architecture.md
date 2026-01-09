@@ -308,18 +308,6 @@ Remember our Day 2 SCALED framework? Here's how client-server enables it:
 
 ---
 
-## 🔜 Coming Up: Day 5
-
-Tomorrow, we decode **REST APIs** — the actual language clients and servers speak. It's how your app's "Play" button becomes a server request.
-
-We'll explore:
-- HTTP methods (GET, POST, PUT, DELETE)
-- Request/Response structure
-- Status codes and what they mean
-- Real API design examples
-
----
-
 ## 💡 Key Takeaway
 
 > **When you press play on Spotify, your phone (Frontend Client) handles what you see—animations and playback—while the Backend Server acts as the brain, executing logic like subscription checks and song selection. The Database serves as the memory, storing your play history, and the API Layer translates everything, ensuring all components speak the same language.**
