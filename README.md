@@ -19,6 +19,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 2 | Key Characteristics of Great Systems (SCALED) | [Read](./Day2_Key_Characteristics_SCALED.md) |
 | 3 | Functional vs Non-Functional Requirements | [Read](./Day3_Functional_Vs_Nonfunctional_Requirements.md) |
 | 4 | Client-Server Architecture | [Read](./Day4_Client_Server_Architecture.md) |
+| 5 | Capacity Estimation: Think Like an Architect | [Read](./Day5_Capacity_Estimation.md) |
 
 ---
 
