@@ -20,6 +20,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 3 | Functional vs Non-Functional Requirements | [Read](./Day3_Functional_Vs_Nonfunctional_Requirements.md) |
 | 4 | Client-Server Architecture | [Read](./Day4_Client_Server_Architecture.md) |
 | 5 | Capacity Estimation: Think Like an Architect | [Read](./Day5_Capacity_Estimation.md) |
+| 6 | Design for Failure: The Architect's Mindset | [Read](./Day6_Design_For_Failure.md) |
 
 ---
 
