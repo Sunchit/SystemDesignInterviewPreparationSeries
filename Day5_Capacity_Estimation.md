@@ -306,3 +306,4 @@ If you want to think like an architect, don't just build the meal—plan the ent
 
 > 🎯 **Interview Edge:** When asked to design any system, start with: "Let me first estimate the scale we're designing for." Then walk through users → actions → data → storage → bandwidth. This immediately signals architect-level thinking.
 
+
