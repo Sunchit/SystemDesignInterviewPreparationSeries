@@ -418,6 +418,38 @@ Health checks every 5 seconds
 
 ---
 
+## 🛒 E-Commerce Load Balancing Strategy (Flipkart/Amazon)
+
+When building a load balancer for an e-commerce website, **different pages need different strategies**:
+
+| Component | Strategy | Why |
+|-----------|----------|-----|
+| **Homepage** | Geographic + Round Robin | Users distributed globally, stateless pages |
+| **Product Search** | Least Response Time | Speed is critical for search experience |
+| **Add to Cart** | IP Hash (sticky sessions) | Cart data must stay on same server |
+| **Checkout** | Least Connections + IP Hash | Long transactions + session persistence |
+| **Payments** | Failover + Health-check priority | Reliability > speed, can't lose transactions |
+| **Recommendations** | Weighted Round Robin | ML servers have varying capacity |
+| **Images/CDN** | Least Bandwidth | Prevent network congestion |
+
+### Why This Matters
+
+```
+User Journey:
+Homepage (fast, any server) → Search (fastest server) → 
+Add to Cart (sticky server) → Checkout (same server, least loaded) → 
+Payment (most reliable server)
+```
+
+Each step has different priorities:
+- **Homepage/Search:** Speed and distribution
+- **Cart/Checkout:** Session consistency
+- **Payments:** Reliability and failover
+
+This is why architects don't use "one strategy for everything."
+
+---
+
 ## 🔧 Implementation Examples
 
 ### NGINX Config
