@@ -22,6 +22,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 5 | Capacity Estimation: Think Like an Architect | [Read](./Day5_Capacity_Estimation.md) |
 | 6 | Design for Failure: The Architect's Mindset | [Read](./Day6_Design_For_Failure.md) |
 | 7 | Databases: Developer vs Architect Thinking | [Read](./Day7_Databases_Developer_vs_Architect.md) |
+| 8 | Load Balancing: Traffic Orchestration | [Read](./Day8_Load_Balancing.md) |
 
 ---
 
