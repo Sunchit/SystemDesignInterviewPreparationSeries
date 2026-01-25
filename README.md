@@ -25,6 +25,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 8 | Load Balancing: Traffic Orchestration | [Read](./Day8_Load_Balancing.md) |
 | 9 | Bloom Filters: Preventing Cache Penetration | [Read](./Day9_Bloom_Filters_Cache_Penetration.md) |
 | 10 | Request Coalescing: When 50,000 Became 1 | [Read](./Day10_Request_Coalescing.md) |
+| 11 | Kubernetes Scaling: The Architect's Orchestra | [Read](./Day11_Kubernetes_Scaling.md) |
 
 ---
 
