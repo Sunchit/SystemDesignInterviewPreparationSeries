@@ -27,6 +27,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 10 | Request Coalescing: When 50,000 Became 1 | [Read](./Day10_Request_Coalescing.md) |
 | 11 | Kubernetes Scaling: The Architect's Orchestra | [Read](./Day11_Kubernetes_Scaling.md) |
 | 12 | Factory Design Pattern: Zomato Order System | [Read](./Day12_Factory_Design_Pattern.md) |
+| 13 | Circuit Breaker: When PhonePe Saved 50K Payments | [Read](./Day13_Circuit_Breaker_Pattern.md) |
 
 ---
 
