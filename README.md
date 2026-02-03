@@ -29,6 +29,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 12 | Factory Design Pattern: Zomato Order System | [Read](./Day12_Factory_Design_Pattern.md) |
 | 13 | Circuit Breaker: When PhonePe Saved 50K Payments | [Read](./Day13_Circuit_Breaker_Pattern.md) |
 | 14 | Spring Boot Performance: The Architect's 6-Step Framework | [Read](./Day14_SpringBoot_Performance.md) |
+| 15 | Redis Single-Threaded Magic: Why It's Faster Than Your Multi-Threaded Database | [Read](./Day15_Redis_Single_Threaded_Magic.md) |
 
 ---
 
