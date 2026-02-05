@@ -30,6 +30,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 13 | Circuit Breaker: When PhonePe Saved 50K Payments | [Read](./Day13_Circuit_Breaker_Pattern.md) |
 | 14 | Spring Boot Performance: The Architect's 6-Step Framework | [Read](./Day14_SpringBoot_Performance.md) |
 | 15 | Redis Single-Threaded Magic: Why It's Faster Than Your Multi-Threaded Database | [Read](./Day15_Redis_Single_Threaded_Magic.md) |
+| 16 | Redis Sorted Sets: Building Real-Time Leaderboards at Scale | [Read](./Day16_Redis_Sorted_Sets_Leaderboard.md) |
 
 ---
 
