@@ -32,6 +32,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 15 | Redis Single-Threaded Magic: Why It's Faster Than Your Multi-Threaded Database | [Read](./Day15_Redis_Single_Threaded_Magic.md) |
 | 16 | Redis Sorted Sets: Building Real-Time Leaderboards at Scale | [Read](./Day16_Redis_Sorted_Sets_Leaderboard.md) |
 | 17 | Instagram's 7-Layer Architecture: How 1M Likes Don't Break the Internet | [Read](./Day17_Instagram_Like_System_Architecture.md) |
+| 18 | Redis Configuration Nightmare: Lettuce vs Jedis - The Default Timeout Trap | [Read](./Day18_Redis_Timeout_Configuration.md) |
 
 ---
 
