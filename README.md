@@ -35,6 +35,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 18 | Redis Configuration Nightmare: Lettuce vs Jedis - The Default Timeout Trap | [Read](./Day18_Redis_Timeout_Configuration.md) |
 | 19 | How Google Checks Email Uniqueness in Milliseconds: Bloom Filters | [Read](./Day19_Google_Email_Uniqueness_BloomFilter.md) |
 | 20 | Block File Uploads: How Dropbox & Netflix Upload 5TB Files to S3 | [Read](./Day20_S3_Multipart_Upload_Architecture.md) |
+| 21 | Optimistic vs Pessimistic Locking: Amazon vs BookMyShow | [Read](./Day21_Optimistic_vs_Pessimistic_Locking.md) |
 
 ---
 
