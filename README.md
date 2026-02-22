@@ -37,6 +37,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 20 | Block File Uploads: How Dropbox & Netflix Upload 5TB Files to S3 | [Read](./Day20_S3_Multipart_Upload_Architecture.md) |
 | 21 | Optimistic vs Pessimistic Locking: Amazon vs BookMyShow | [Read](./Day21_Optimistic_vs_Pessimistic_Locking.md) |
 | 22 | The 7 Layers of Every High-Level Design: A Complete Architecture Blueprint | [Read](./Day22_7_Layers_HLD_Architecture.md) |
+| 23 | Database Selection for System Design: The Architect's Complete Guide | [Read](./Day23_Database_Selection_System_Design.md) |
 
 ---
 
