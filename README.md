@@ -38,6 +38,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 21 | Optimistic vs Pessimistic Locking: Amazon vs BookMyShow | [Read](./Day21_Optimistic_vs_Pessimistic_Locking.md) |
 | 22 | The 7 Layers of Every High-Level Design: A Complete Architecture Blueprint | [Read](./Day22_7_Layers_HLD_Architecture.md) |
 | 23 | Database Selection for System Design: The Architect's Complete Guide | [Read](./Day23_Database_Selection_System_Design.md) |
+| 24 | API Protocol Decision Framework: gRPC, GraphQL, REST & WebSocket | [Read](./Day24_API_Protocol_Decision_Framework.md) |
 
 ---
 
