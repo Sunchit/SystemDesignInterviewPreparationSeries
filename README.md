@@ -39,6 +39,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 22 | The 7 Layers of Every High-Level Design: A Complete Architecture Blueprint | [Read](./Day22_7_Layers_HLD_Architecture.md) |
 | 23 | Database Selection for System Design: The Architect's Complete Guide | [Read](./Day23_Database_Selection_System_Design.md) |
 | 24 | API Protocol Decision Framework: gRPC, GraphQL, REST & WebSocket | [Read](./Day24_API_Protocol_Decision_Framework.md) |
+| 25 | Deployment Strategies Decoded: The Architect's Complete Guide | [Read](./Day25_Deployment_Strategies.md) |
 
 ---
 
