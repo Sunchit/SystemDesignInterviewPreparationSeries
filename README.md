@@ -41,6 +41,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 24 | API Protocol Decision Framework: gRPC, GraphQL, REST & WebSocket | [Read](./Day24_API_Protocol_Decision_Framework.md) |
 | 25 | Deployment Strategies Decoded: The Architect's Complete Guide | [Read](./Day25_Deployment_Strategies.md) |
 | 26 | Docker Production Commands: The Architect's Essential Guide | [Read](./Day26_Docker_Production_Commands.md) |
+| 27 | Two-Phase Commit (2PC): The Distributed Transaction Protocol | [Read](./Day27_Two_Phase_Commit.md) |
 
 ---
 
