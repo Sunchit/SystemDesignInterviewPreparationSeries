@@ -42,6 +42,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 25 | Deployment Strategies Decoded: The Architect's Complete Guide | [Read](./Day25_Deployment_Strategies.md) |
 | 26 | Docker Production Commands: The Architect's Essential Guide | [Read](./Day26_Docker_Production_Commands.md) |
 | 27 | Two-Phase Commit (2PC): The Distributed Transaction Protocol | [Read](./Day27_Two_Phase_Commit.md) |
+| 28 | Consistent Hashing: The Resharding Strategy That Powers Amazon, Discord & Netflix | [Read](./Day28_Consistent_Hashing_Resharding.md) |
 
 ---
 
