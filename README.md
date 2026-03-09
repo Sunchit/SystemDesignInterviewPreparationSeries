@@ -43,7 +43,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 26 | Docker Production Commands: The Architect's Essential Guide | [Read](./Day26_Docker_Production_Commands.md) |
 | 27 | Two-Phase Commit (2PC): The Distributed Transaction Protocol | [Read](./Day27_Two_Phase_Commit.md) |
 | 28 | Consistent Hashing: The Resharding Strategy That Powers Amazon, Discord & Netflix | [Read](./Day28_Consistent_Hashing_Resharding.md) |
-| 29 | Rate Limiting: How Netflix, Stripe & GitHub Protect Their APIs from Abuse | [Read](./Day29_Rate_Limiting_Protecting_APIs.md) |
+| 29 | Forward Proxy vs Reverse Proxy: The Gatekeepers of Modern Internet Architecture | [Read](./Day29_Forward_Reverse_Proxy.md) |
 
 ---
 
