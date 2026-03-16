@@ -46,6 +46,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 29 | Forward Proxy vs Reverse Proxy: The Gatekeepers of Modern Internet Architecture | [Read](./Day29_Forward_Reverse_Proxy.md) |
 | 30 | Database Replication: The Power That Transforms Fragile Systems into Resilient Architectures | [Read](./Day30_Database_Replication_AWS_Architecture.md) |
 | 31 | Kafka Schema Evolution: The "New Topic" Strategy for Breaking Changes | [Read](./Day31_Kafka_Schema_Evolution_New_Topic_Strategy.md) |
+| 32 | Scheduled Locks: Distributed Lock for Cron Jobs — Step-by-Step Workflow | [Read](./Day32_Scheduled_Locks_Distributed_Lock_Workflow.md) |
 
 ---
 
