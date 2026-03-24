@@ -412,3 +412,5 @@ Design for the failure, and success takes care of itself.
 > 🎯 **Interview Edge:** When designing any system, proactively say: "Let me walk you through the failure scenarios and how I'd handle them." Then discuss database failures, service timeouts, and graceful degradation. This immediately signals senior-level thinking.
 
 
+
+
