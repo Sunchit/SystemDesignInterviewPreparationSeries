@@ -49,7 +49,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 32 | Scheduled Locks: Distributed Lock for Cron Jobs — Step-by-Step Workflow | [Read](./Day32_Scheduled_Locks_Distributed_Lock_Workflow.md) |
 | 33 | Distributed Tracing IDs: The Complete Guide | [Read](./Day33_Distributed_Tracing_IDs_Complete_Guide.md) |
 | 34 | Kafka Partition Assignment & Rebalancing: The Complete Guide | [Read](./Day34_Kafka_Partition_Assignment_And_Rebalancing.md) |
-| 35 | Distributed Systems Failure Modes: Complete HLD Architecture | [Read](./Day35_Distributed_Systems_Failure_Modes_HLD.md) |
+| 35 | What Can Go Wrong: Distributed Systems & How to Survive Them | [Read](./Day35_Distributed_Systems_Failure_Modes_HLD.md) |
 
 ---
 
