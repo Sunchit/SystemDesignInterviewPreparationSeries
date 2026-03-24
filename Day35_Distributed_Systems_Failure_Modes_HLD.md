@@ -9,8 +9,6 @@
 
 Distributed failures stack from **edge** through **application**, **data**, **messaging**, **external dependencies**, and **infrastructure**. Each layer has predictable symptoms, root causes, and mitigations. Use the **dark warm palette** below for slides, diagrams, and HLD drawings so layers stay visually distinct without neon brights.
 
-> **Diagrams:** Use the **Color Palette Guide** hex values in Excalidraw or slides — dark warm bands (edge → infra) with light labels (`#FFD966`).
-
 ---
 
 ## 📋 Failure Modes Catalog
