@@ -9,7 +9,7 @@
 
 Distributed failures stack from **edge** through **application**, **data**, **messaging**, **external dependencies**, and **infrastructure**. Each layer has predictable symptoms, root causes, and mitigations. Use the **dark warm palette** below for slides, diagrams, and HLD drawings so layers stay visually distinct without neon brights.
 
-> **📐 Excalidraw:** Open [distributed-systems-failure-landscape.excalidraw](./distributed-systems-failure-landscape.excalidraw) at [excalidraw.com](https://excalidraw.com) — layered stack using the dark yellow / golden / orange / brown palette; light labels (`#FFD966`).
+> **Diagrams:** Use the **Color Palette Guide** hex values in Excalidraw or slides — dark warm bands (edge → infra) with light labels (`#FFD966`).
 
 ---
 
