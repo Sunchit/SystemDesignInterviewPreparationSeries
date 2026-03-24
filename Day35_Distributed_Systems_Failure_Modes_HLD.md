@@ -9,6 +9,8 @@
 
 Distributed failures stack from **edge** through **application**, **data**, **messaging**, **external dependencies**, and **infrastructure**. Each layer has predictable symptoms, root causes, and mitigations. Use the **dark warm palette** below for slides, diagrams, and HLD drawings so layers stay visually distinct without neon brights.
 
+**Reality check:** One layer rarely fails in isolation. A slow external API can exhaust connection pools in the app tier, which makes health checks flap at the load balancer, which triggers thundering herds against cache and DB. Good HLD names **blast radius**, **dependencies**, and **what degrades first**—not only “happy path” scale.
+
 ---
 
 ## 📋 Failure Modes Catalog
@@ -85,6 +87,63 @@ Distributed failures stack from **edge** through **application**, **data**, **me
 
 ---
 
+## 🔗 Cascading Failures: How One Layer Pulls Down the Next
+
+| Stage | What users see | What’s often happening under the hood |
+|-------|----------------|----------------------------------------|
+| 1 | Spikes in latency | Upstream dependency slow; threads or event-loop tasks pile up |
+| 2 | Errors climb | Timeouts fire; retries multiply load on already-sick dependencies (**retry storm**) |
+| 3 | Pool / queue saturation | DB or HTTP client pools exhausted; Kafka consumer `max.poll.interval` blown |
+| 4 | Health checks fail | LB marks instances bad; remaining nodes take **more** traffic (**metastable failure**) |
+| 5 | Data path stress | Cache stampedes, replica lag, or hot keys amplify the collapse |
+
+**Design takeaway:** Combine **timeouts shorter than client patience**, **bounded retries** (with jitter), **bulkheads** so one dependency can’t starve the whole JVM, and **backpressure** (queue limits, shed load at gateway) so the system **fails partially** instead of dying everywhere at once.
+
+---
+
+## 🧠 Failure Taxonomy (How Architects Classify Incidents)
+
+| Type | Meaning | Example | Typical response |
+|------|---------|---------|------------------|
+| **Transient** | Likely succeeds on retry | Packet loss, brief GC pause, 503 from rolling deploy | Retry with backoff + jitter; no schema change |
+| **Permanent** | Retry won’t help until fixed | Bad payload, auth revoked, constraint violation | Fail fast; DLQ; alert; fix data or code |
+| **Fail-stop** | Component halts cleanly | Process crash, pod SIGKILL | Restart, failover, drain connections |
+| **Degraded** | Still serves some traffic | Read-only mode, feature flag off, stale cache | Graceful degradation; communicate to users |
+| **Correlated** | Many nodes fail together | AZ outage, bad config rollout, bad dependency release | Blast-radius control; canary; multi-AZ |
+
+Interview tip: Always say whether a failure is **transient vs permanent** before arguing for “retry everything” or “never retry.”
+
+---
+
+## 📐 HLD Review: Failure-Oriented Questions
+
+Ask these while reviewing or sketching an architecture (document cloud, e-commerce, or internal platforms):
+
+- **Single points of failure:** Where is the only copy of truth? The only region? The only vendor?
+- **Dependency depth:** If payment is down, do we block **checkout** only or the **whole site**?
+- **Data path:** Which reads are allowed to be stale? Which writes must be **strongly consistent**?
+- **Messaging:** At-least-once vs exactly-once semantics—what breaks if we process twice?
+- **Operational:** Who gets paged for **consumer lag** vs **DB lag** vs **external 429**?
+- **Recovery:** RTO/RPO for this flow—minutes, hours, or “best effort”?
+
+---
+
+## 🔢 Operational Numbers (Starting Points, Tune to SLOs)
+
+These are **defaults to argue from**, not universal laws—always align with your latency SLO and client timeouts.
+
+| Concern | Rule of thumb | Why it matters |
+|---------|---------------|----------------|
+| Client → service timeout | ≤ user-facing SLA (e.g. 2–5 s for APIs) | Avoid hung UIs and thread pileups |
+| Service → dependency | Shorter than caller timeout (nested budgets) | Inner call must fail before outer gives up |
+| Retries | Cap count (e.g. 2–3); **always jitter** | Prevents synchronized retry storms |
+| Connection pools | Size from measured concurrency, not “max” | Too large = DB meltdown; too small = artificial bottleneck |
+| Health checks | Liveness vs readiness split | Don’t kill pod for slow dependency if it’s still “alive” |
+| Cache TTL | Add **jitter** (e.g. ±10%) | Reduces synchronized expiry (stampede) |
+| Kafka consumers | `max.poll.interval` vs processing time | Long handlers need tuning or async processing |
+
+---
+
 ## 🛡️ Resilience Patterns Map (Dark Palette)
 
 | Pattern | Primary layers | Role |
@@ -99,6 +158,13 @@ Distributed failures stack from **edge** through **application**, **data**, **me
 | **Multi-AZ / replication / DR** | Infrastructure, Data | Survive node and zone loss |
 | **Caching discipline** (TTL jitter, coalescing, bloom) | Data | Cut penetration and stampede |
 | **Observability** (SLOs, Synthetics, tracing) | All (`#A6761A` observability stripe) | Detect shift-left; shorten MTTR |
+| **Saga / process manager** | Data, Message, External | Long workflows with compensating actions when a step fails |
+| **Outbox / transactional messaging** | Data, Message | Avoid “DB committed but event never sent” dual-write failures |
+| **Leader election + epoch** | Data, Infrastructure | Clear winner after partition; stale primaries step down |
+| **Graceful shutdown** | Application, Message | `SIGTERM` handling; drain HTTP; commit offsets before exit |
+| **Feature flags / kill switch** | Application, Edge | Instantly disable a bad path without full deploy |
+
+Patterns stack: e.g. **timeout + circuit breaker + bulkhead + idempotency** is a common production bundle for payment and inventory calls.
 
 ---
 
@@ -134,6 +200,53 @@ Use these hex values in Excalidraw, Figma, or slide masters so HLD diagrams stay
 | **Kafka** | Consumer lag, ISR shrink | > 10k lag, ISR < min | Add consumers, reassign partitions | ~3 min |
 | **External API** | Timeout rate, circuit state | > 10% timeout, circuit open | Fallback, cache stale if safe | ~1 min |
 | **Region** | AZ health, replication status | > 50% AZ impacted | Cross-region failover | ~15 min |
+| **Cache (Redis)** | Hit ratio, memory, evictions, latency | Hit ratio drop > 10 pts; P99 > 2× baseline | Scale cluster, fix hot keys, TTL review | ~5 min |
+| **API Gateway** | Auth latency, 429 rate, route errors | Auth P99 > 500 ms; 429 > 5% sustained | Scale gateway pods, relax mis-tuned limits, cache JWKS | ~3 min |
+| **CDN / Edge** | Origin fetch rate, 5xx at edge | Origin load spike; edge 5xx > 1% | Stale-while-revalidate, widen cache, second origin | ~10 min |
+
+---
+
+## 💼 Example: Document Cloud Bulk Export (Cross-Layer)
+
+| Layer | Failure you might hit | Mitigation in design |
+|-------|----------------------|----------------------|
+| Edge | Large download timeouts | Signed URLs, chunked export, async “notify when ready” |
+| App | Long CPU for zip/PDF | Queue job, worker pool, separate scaling from API |
+| Data | Hot metadata row for “folder” | Shard listing, cache folder trees with TTL + coalescing |
+| Message | Export job backlog | Dedicated topic/partitions, consumer autoscaling on lag |
+| External | Virus scan / preview API slow | Async pipeline, circuit breaker, optional skip with audit |
+| Infra | AZ loss | Multi-AZ object store + DB replicas; job state replicated |
+
+Use this as a template: pick **your** feature and walk the same six layers in an interview.
+
+---
+
+## 🧪 Chaos, Load, and Error Budgets
+
+- **Load testing:** Prove behavior at **2× expected peak**—watch pools, GC, and dependency timeouts, not just HTTP 200s.
+- **Fault injection:** Kill pods, inject latency on one dependency, shrink Kafka ISR in a **non-prod** cluster—verify alerts and runbooks.
+- **Game days:** Scripted scenarios (DNS fail, replica lag, payment down) with observers scoring detection and recovery time.
+- **Error budget:** If availability SLO is 99.9%, you have ~43 minutes downtime/month—**budget** retries, deploys, and experiments so routine work doesn’t burn it all on one cascade.
+
+---
+
+## 📎 Runbook Skeleton (Paste into Wiki / Notion)
+
+```yaml
+Scenario: [e.g. Kafka consumer lag on export-jobs]
+Severity: [P1/P2]
+Symptoms: [dashboards, alerts]
+Blast radius: [which tenants / regions]
+Immediate checks:
+  - Consumer group lag, partition assignment
+  - Recent deploys, config changes
+  - Dependency health (DB, object store)
+Mitigation:
+  - Scale consumers / add partitions (if planned)
+  - Pause poison source; DLQ inspection
+Communication: [status page, internal channel]
+Post-incident: [link to postmortem template]
+```
 
 ---
 
@@ -184,6 +297,8 @@ Use these hex values in Excalidraw, Figma, or slide masters so HLD diagrams stay
 | Day 13 | Circuit breaker | External + gateway failures |
 | Day 22 | 7-layer HLD | Map each layer to failure modes |
 | Day 34 | Kafka rebalancing | Message layer — rebalance row |
+| Day 25 | Deployment strategies | Bad rollout = correlated failure across instances |
+| Day 30 | Database replication | Replication lag, failover, read-after-write |
 
 ---
 
@@ -192,6 +307,8 @@ Use these hex values in Excalidraw, Figma, or slide masters so HLD diagrams stay
 1. Pick one service and map its top five failure modes across layers.
 2. Align alerts in the detection matrix with your real dashboards.
 3. Reuse the palette in your next HLD diagram for consistent storytelling.
+4. Write one runbook from the skeleton for your highest-traffic dependency.
+5. Run one chaos or load experiment this month and fix the **first** gap you find (timeout, pool size, or missing alert).
 
 ---
 
