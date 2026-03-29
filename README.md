@@ -51,6 +51,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 34 | Kafka Partition Assignment & Rebalancing: The Complete Guide | [Read](./Day34_Kafka_Partition_Assignment_And_Rebalancing.md) |
 | 35 | What Can Go Wrong: Distributed Systems & How to Survive Them | [Read](./Day35_Distributed_Systems_Failure_Modes_HLD.md) |
 | 36 | RabbitMQ vs Kafka: The Architect's Decision Guide | [Read](./Day36_RabbitMQ_vs_Kafka_Architects_Decision_Guide.md) |
+| 37 | Optimizing Cache for High Hit Rate in Distributed Systems | [Read](./Day37_Optimizing_Cache_High_Hit_Rate_Distributed_Systems.md) |
 
 ---
 
