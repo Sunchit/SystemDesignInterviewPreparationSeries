@@ -53,6 +53,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 36 | RabbitMQ vs Kafka: The Architect's Decision Guide | [Read](./Day36_RabbitMQ_vs_Kafka_Architects_Decision_Guide.md) |
 | 37 | Optimizing Cache for High Hit Rate in Distributed Systems | [Read](./Day37_Optimizing_Cache_High_Hit_Rate_Distributed_Systems.md) |
 | 38 | Primary Key Strategies: SQL vs NoSQL | [Read](./Day38_Primary_Key_Strategies_SQL_vs_NoSQL.md) |
+| 39 | Outbox Pattern: Reliable Messaging Without Distributed Transactions | [Read](./Day39_Outbox_Pattern_Reliable_Messaging.md) |
 
 ---
 
