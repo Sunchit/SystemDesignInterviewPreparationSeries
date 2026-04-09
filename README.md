@@ -55,6 +55,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 38 | Primary Key Strategies: SQL vs NoSQL | [Read](./Day38_Primary_Key_Strategies_SQL_vs_NoSQL.md) |
 | 39 | Outbox Pattern: Reliable Messaging Without Distributed Transactions | [Read](./Day39_Outbox_Pattern_Reliable_Messaging.md) |
 | 40 | Modular Monolith Architecture: The Best of Both Worlds | [Read](./Day40_Modular_Monolith_Architecture.md) |
+| 41 | ACID vs BASE: Instagram, CAP (AP), and BASE in the Real App | [Read](./Day41_ACID_vs_BASE_Instagram_CAP.md) |
 | 42 | Blue-Green Deployment: Achieving Zero Downtime | [Read](./Day42_Blue_Green_Deployment_Zero_Downtime.md) |
 
 ---
