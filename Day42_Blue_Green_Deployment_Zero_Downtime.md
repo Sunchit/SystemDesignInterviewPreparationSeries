@@ -1,5 +1,5 @@
 # Blue-Green Deployment: Achieving Zero Downtime
-### Day 41 of 50 - System Design Interview Preparation Series
+### Day 42 of 50 - System Design Interview Preparation Series
 
 **By Sunchit Dudeja**
 
@@ -139,7 +139,7 @@ Large platforms often use **blue–green** (or equivalent: two ASGs, two cluster
 
 ---
 
-## ✅ Day 41 Action Items
+## ✅ Day 42 Action Items
 
 1. For one service, sketch **Blue** vs **Green** as target groups or namespaces—where is the **flip**?  
 2. List **one** DB change that would **break** a naive blue–green flip; plan **expand–contract** instead.  
@@ -148,4 +148,4 @@ Large platforms often use **blue–green** (or equivalent: two ASGs, two cluster
 ---
 
 *— Sunchit Dudeja*  
-*Day 41 of 50: System Design Interview Preparation Series*
+*Day 42 of 50: System Design Interview Preparation Series*
