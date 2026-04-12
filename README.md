@@ -57,6 +57,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 40 | Modular Monolith Architecture: The Best of Both Worlds | [Read](./Day40_Modular_Monolith_Architecture.md) |
 | 41 | ACID vs BASE: Instagram, CAP (AP), and BASE in the Real App | [Read](./Day41_ACID_vs_BASE_Instagram_CAP.md) |
 | 42 | Blue-Green Deployment: Achieving Zero Downtime | [Read](./Day42_Blue_Green_Deployment_Zero_Downtime.md) |
+| 43 | Bloom Filter: Instagram Username Availability (No False Negatives) | [Read](./Day43_Bloom_Filter_Instagram_Username_Availability.md) |
 
 ---
 
