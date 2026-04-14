@@ -11,6 +11,8 @@ Amazon’s Black Friday window can see **enormous** traffic in the first minutes
 
 > **Reality check:** Exact **peak RPS** for Amazon’s production edge is **not** public. Interview answers are judged on **clear assumptions**, **order-of-magnitude math**, and **what you do with the numbers**—not on pretending you know confidential metrics.
 
+> **📐 Excalidraw (dark canvas `#1e1e2e`):** [day44-capacity-estimation-black-friday.excalidraw](./day44-capacity-estimation-black-friday.excalidraw) — open at [excalidraw.com](https://excalidraw.com). Same file can live in **Downloads** as `day44-capacity-estimation-black-friday-dark.excalidraw` for local edits.
+
 ---
 
 ## Why capacity estimation matters
