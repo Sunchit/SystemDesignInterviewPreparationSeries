@@ -122,6 +122,37 @@ flowchart TB
     style C2 fill:#5a2a2a,stroke:#8a4a4a,color:#e0e0e0
 ```
 
+**Orchestration-style sketch** (Order service drives steps; compensation when payment fails):
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {
+  'primaryTextColor': '#cdd6f4',
+  'lineColor': '#6c6c8a'
+}}}%%
+sequenceDiagram
+    participant O as Order Service
+    participant I as Inventory Service
+    participant P as Payment Service
+    participant C as Compensator
+
+    O->>I: 1. Reserve stock (local TX)
+    I-->>O: Stock reserved
+    O->>P: 2. Process payment (local TX)
+    P-->>O: Payment OK
+    O->>O: 3. Create order (local TX)
+
+    Note over O,C: ✅ Order complete
+
+    alt Payment fails
+        P-->>O: Payment failed
+        O->>I: ⚠️ Compensate: Release stock
+        I-->>O: Stock released
+        O->>O: Order failed (no order created)
+    end
+```
+
+*(If payment never succeeded, no refund step is needed—only **release stock**. If you had charged first in a different ordering, compensations would include **refund**.)*
+
 ---
 
 ## Two Saga styles
