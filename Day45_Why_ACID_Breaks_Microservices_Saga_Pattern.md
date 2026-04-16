@@ -11,6 +11,8 @@
 
 **Saga** is the standard interview answer: a **sequence of local ACID transactions** (one per service), plus **compensating transactions** when something fails—trading **cross-service strong consistency** for **eventual consistency**, **availability**, and **loose coupling**.
 
+> **📐 Excalidraw (dark canvas `#1e1e2e`):** [day45-saga-pattern-microservices.excalidraw](./day45-saga-pattern-microservices.excalidraw) — open at [excalidraw.com](https://excalidraw.com). Monolith vs DB-per-service, forward saga steps, compensation strip, choreography vs orchestration.
+
 ---
 
 ## The ACID comfort zone (monolith)
