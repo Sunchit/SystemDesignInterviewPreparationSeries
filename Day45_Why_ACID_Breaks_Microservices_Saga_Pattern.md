@@ -180,20 +180,25 @@ If step 3 fails, run **refund** then **release stock** (order matters—define i
 
 ---
 
-## Compensating actions (rules of thumb)
+## Compensating actions explained
 
-| Forward | Compensation |
-|---------|--------------|
+A **compensating action** is the **business‑logical undo** of a previous step. It is **not** a database **rollback** in the cross‑service sense—that is effectively **impossible** when each service owns its own database and transaction boundary. Instead, compensation is a **new transaction** (local to one service) that **reverses or offsets** the **effect** of the earlier step, according to your domain rules.
+
+| Forward action | Compensation |
+|----------------|----------------|
 | Reserve stock | Release stock |
-| Charge card | Refund |
-| Send confirmation email | Send correction / void (or accept duplicate-safe messaging) |
+| Charge credit card | Refund (or void / release hold) |
+| Send email | Send follow‑up / apology email (or idempotent “undo send” if your product supports it) |
+| Book hotel room | Cancel booking |
+
+For order‑placement sagas, the same pattern applies: **reserve → charge → order** pairs with **release → refund → cancel** when something fails—always in an order you define for your workflow.
 
 **Requirements (interview checklist):**
 
-- **Idempotent** — safe to retry (network duplicates happen).
-- **Semantic correctness** — “undo” matches business rules, not blind `DELETE`.
-- **Ordering** — define whether compensation is **LIFO** reverse order or domain-specific.
-- **Eventually consistent** — readers may see **in-between** states; design for that ([BASE / CAP context](./Day41_ACID_vs_BASE_Instagram_CAP.md)).
+- **Idempotent** — compensations (and forwards) must be **safe to retry**; at‑least‑once delivery is normal in distributed systems.
+- **Eventually consistent** — related services may disagree briefly; external readers may see **intermediate states** until compensations complete ([BASE / CAP](./Day41_ACID_vs_BASE_Instagram_CAP.md)).
+- **Semantic correctness** — “undo” matches **business** meaning, not a blind `DELETE` that breaks audits or downstream systems.
+- **Ordering** — define whether you run compensations in **reverse** order of forward steps (common) or a domain‑specific sequence (e.g. refund before release when the gateway requires it).
 
 ---
 
