@@ -60,6 +60,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 43 | Bloom Filter: Instagram Username Availability (No False Negatives) | [Read](./Day43_Bloom_Filter_Instagram_Username_Availability.md) |
 | 44 | Capacity Estimation for Black Friday: How Amazon Prepares for the Madness | [Read](./Day44_Capacity_Estimation_Black_Friday_Amazon.md) |
 | 45 | Why ACID Breaks in Microservices & How the Saga Pattern Fixes It | [Read](./Day45_Why_ACID_Breaks_Microservices_Saga_Pattern.md) |
+| 46 | Kafka Message Ordering: What Juniors Get Wrong & Architects Know | [Read](./Day46_Kafka_Message_Ordering_Partitions_Architects_Know.md) |
 
 ---
 
