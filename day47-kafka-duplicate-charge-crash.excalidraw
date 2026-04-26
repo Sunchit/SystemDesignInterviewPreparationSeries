@@ -3,15 +3,13 @@
   "version": 2,
   "source": "https://excalidraw.com",
   "elements": [
-
-    // ─── TITLE ───────────────────────────────────────────────────────────────
     {
       "id": "title",
       "type": "text",
       "x": 60, "y": 20,
-      "width": 1200, "height": 48,
+      "width": 1100, "height": 48,
       "text": "Day 47 · The Kafka OOM Crash That Charged 1000 Customers Twice",
-      "fontSize": 22, "fontFamily": 1,
+      "fontSize": 24, "fontFamily": 1,
       "strokeColor": "#cdd6f4", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
       "textAlign": "center", "verticalAlign": "top",
@@ -24,9 +22,9 @@
     {
       "id": "subtitle",
       "type": "text",
-      "x": 60, "y": 68,
-      "width": 1200, "height": 24,
-      "text": "OOM crash  →  no offset commit  →  rebalance  →  redelivery  →  double charge  →  fraud flag",
+      "x": 60, "y": 70,
+      "width": 1100, "height": 24,
+      "text": "OOM crash  ➜  no offset commit  ➜  rebalance  ➜  redelivery  ➜  double charge  ➜  fraud flag",
       "fontSize": 13, "fontFamily": 1,
       "strokeColor": "#a6adc8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -34,18 +32,15 @@
       "seed": 47002, "version": 1, "versionNonce": 47002,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "OOM crash  →  no offset commit  →  rebalance  →  redelivery  →  double charge  →  fraud flag",
+      "originalText": "OOM crash  ➜  no offset commit  ➜  rebalance  ➜  redelivery  ➜  double charge  ➜  fraud flag",
       "angle": 0, "groupIds": []
     },
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // SCENE 1 — NORMAL STATE (before crash)
-    // ══════════════════════════════════════════════════════════════════════════
     {
       "id": "s1-label",
       "type": "text",
-      "x": 60, "y": 110,
-      "width": 500, "height": 24,
+      "x": 60, "y": 112,
+      "width": 600, "height": 22,
       "text": "SCENE 1 — Normal: Pod A consuming payment_events",
       "fontSize": 14, "fontFamily": 1,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
@@ -57,13 +52,11 @@
       "originalText": "SCENE 1 — Normal: Pod A consuming payment_events",
       "angle": 0, "groupIds": []
     },
-
-    // Kafka topic box
     {
       "id": "s1-kafka",
       "type": "rectangle",
-      "x": 60, "y": 140,
-      "width": 280, "height": 130,
+      "x": 60, "y": 142,
+      "width": 270, "height": 130,
       "strokeColor": "#4a7a9a", "backgroundColor": "#1e3a4e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47004, "version": 1, "versionNonce": 47004,
@@ -74,8 +67,8 @@
     {
       "id": "s1-kafka-tx",
       "type": "text",
-      "x": 70, "y": 148,
-      "width": 260, "height": 20,
+      "x": 70, "y": 150,
+      "width": 250, "height": 18,
       "text": "Kafka: payment_events",
       "fontSize": 13, "fontFamily": 1,
       "strokeColor": "#89dceb", "backgroundColor": "transparent",
@@ -87,13 +80,11 @@
       "originalText": "Kafka: payment_events",
       "angle": 0, "groupIds": []
     },
-
-    // Partition 0
     {
       "id": "s1-p0",
       "type": "rectangle",
-      "x": 75, "y": 175,
-      "width": 250, "height": 40,
+      "x": 75, "y": 176,
+      "width": 240, "height": 38,
       "strokeColor": "#4a7a9a", "backgroundColor": "#2a4a6e",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
       "seed": 47006, "version": 1, "versionNonce": 47006,
@@ -104,9 +95,9 @@
     {
       "id": "s1-p0-tx",
       "type": "text",
-      "x": 75, "y": 183,
-      "width": 250, "height": 24,
-      "text": "Partition 0 — msgs 0–999  ←── offset 0",
+      "x": 75, "y": 184,
+      "width": 240, "height": 22,
+      "text": "Partition 0 — msgs 0-999  [offset=0]",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#cdd6f4", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -114,16 +105,14 @@
       "seed": 47007, "version": 1, "versionNonce": 47007,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Partition 0 — msgs 0–999  ←── offset 0",
+      "originalText": "Partition 0 — msgs 0-999  [offset=0]",
       "angle": 0, "groupIds": []
     },
-
-    // Partition 1
     {
       "id": "s1-p1",
       "type": "rectangle",
-      "x": 75, "y": 222,
-      "width": 250, "height": 36,
+      "x": 75, "y": 220,
+      "width": 240, "height": 38,
       "strokeColor": "#4a7a9a", "backgroundColor": "#2a4a6e",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
       "seed": 47008, "version": 1, "versionNonce": 47008,
@@ -134,9 +123,9 @@
     {
       "id": "s1-p1-tx",
       "type": "text",
-      "x": 75, "y": 230,
-      "width": 250, "height": 20,
-      "text": "Partition 1 — msgs 1000–1999",
+      "x": 75, "y": 228,
+      "width": 240, "height": 22,
+      "text": "Partition 1 — msgs 1000-1999",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#cdd6f4", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -144,15 +133,13 @@
       "seed": 47009, "version": 1, "versionNonce": 47009,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Partition 1 — msgs 1000–1999",
+      "originalText": "Partition 1 — msgs 1000-1999",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow: Kafka → Pod A
     {
       "id": "s1-arrow1",
       "type": "arrow",
-      "x": 342, "y": 195,
+      "x": 332, "y": 197,
       "width": 100, "height": 0,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -166,7 +153,7 @@
     {
       "id": "s1-arrow1-tx",
       "type": "text",
-      "x": 355, "y": 178,
+      "x": 344, "y": 180,
       "width": 80, "height": 16,
       "text": "poll(1000)",
       "fontSize": 11, "fontFamily": 1,
@@ -179,13 +166,11 @@
       "originalText": "poll(1000)",
       "angle": 0, "groupIds": []
     },
-
-    // Pod A (healthy)
     {
       "id": "s1-poda",
       "type": "rectangle",
-      "x": 444, "y": 148,
-      "width": 210, "height": 130,
+      "x": 434, "y": 142,
+      "width": 220, "height": 130,
       "strokeColor": "#4a8a5a", "backgroundColor": "#1e3a2e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47012, "version": 1, "versionNonce": 47012,
@@ -196,9 +181,9 @@
     {
       "id": "s1-poda-tx",
       "type": "text",
-      "x": 454, "y": 158,
-      "width": 190, "height": 110,
-      "text": "Pod A (Consumer)\n──────────────\nRAM used: 400 MB\nRAM limit: 512 MB\n\nprocessing msgs 0–999\noffset NOT committed yet\npaymentService.charge()",
+      "x": 444, "y": 152,
+      "width": 200, "height": 110,
+      "text": "Pod A (Consumer)\n--------------------\nRAM used: 400 MB\nRAM limit: 512 MB\n\nprocessing msgs 0-999\noffset NOT committed\npaymentService.charge()",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#c8f0d0", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -206,15 +191,13 @@
       "seed": 47013, "version": 1, "versionNonce": 47013,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Pod A (Consumer)\n──────────────\nRAM used: 400 MB\nRAM limit: 512 MB\n\nprocessing msgs 0–999\noffset NOT committed yet\npaymentService.charge()",
+      "originalText": "Pod A (Consumer)\n--------------------\nRAM used: 400 MB\nRAM limit: 512 MB\n\nprocessing msgs 0-999\noffset NOT committed\npaymentService.charge()",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow: Pod A → Payment Gateway
     {
       "id": "s1-arrow2",
       "type": "arrow",
-      "x": 656, "y": 195,
+      "x": 656, "y": 197,
       "width": 100, "height": 0,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -228,7 +211,7 @@
     {
       "id": "s1-arrow2-tx",
       "type": "text",
-      "x": 668, "y": 178,
+      "x": 668, "y": 180,
       "width": 80, "height": 16,
       "text": "charge($$$)",
       "fontSize": 11, "fontFamily": 1,
@@ -241,13 +224,11 @@
       "originalText": "charge($$$)",
       "angle": 0, "groupIds": []
     },
-
-    // Payment Gateway
     {
       "id": "s1-pg",
       "type": "rectangle",
-      "x": 758, "y": 160,
-      "width": 180, "height": 70,
+      "x": 758, "y": 155,
+      "width": 190, "height": 72,
       "strokeColor": "#4a7a9a", "backgroundColor": "#1e3a4e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47016, "version": 1, "versionNonce": 47016,
@@ -258,9 +239,9 @@
     {
       "id": "s1-pg-tx",
       "type": "text",
-      "x": 758, "y": 173,
-      "width": 180, "height": 44,
-      "text": "Payment Gateway\n1000 charges: ✓",
+      "x": 758, "y": 168,
+      "width": 190, "height": 44,
+      "text": "Payment Gateway\n1000 charges: OK",
       "fontSize": 12, "fontFamily": 1,
       "strokeColor": "#89dceb", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -268,18 +249,15 @@
       "seed": 47017, "version": 1, "versionNonce": 47017,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Payment Gateway\n1000 charges: ✓",
+      "originalText": "Payment Gateway\n1000 charges: OK",
       "angle": 0, "groupIds": []
     },
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // SCENE 2 — OOM CRASH
-    // ══════════════════════════════════════════════════════════════════════════
     {
       "id": "s2-label",
       "type": "text",
-      "x": 60, "y": 305,
-      "width": 700, "height": 24,
+      "x": 60, "y": 300,
+      "width": 800, "height": 22,
       "text": "SCENE 2 — Pod A runs out of memory. Crashes. Offset NEVER committed.",
       "fontSize": 14, "fontFamily": 1,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
@@ -291,13 +269,11 @@
       "originalText": "SCENE 2 — Pod A runs out of memory. Crashes. Offset NEVER committed.",
       "angle": 0, "groupIds": []
     },
-
-    // Pod A crashed
     {
       "id": "s2-poda",
       "type": "rectangle",
-      "x": 60, "y": 335,
-      "width": 260, "height": 130,
+      "x": 60, "y": 330,
+      "width": 270, "height": 130,
       "strokeColor": "#8a3a3a", "backgroundColor": "#4a1a1a",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47021, "version": 1, "versionNonce": 47021,
@@ -308,9 +284,9 @@
     {
       "id": "s2-poda-tx",
       "type": "text",
-      "x": 70, "y": 345,
-      "width": 240, "height": 110,
-      "text": "💥 Pod A — OOM KILLED\n──────────────────\nRAM: 512 MB / 512 MB\njava.lang.OutOfMemoryError\n\nmessages 0–999: CHARGED ✓\noffset 0–999: NOT committed\nKafka still thinks:\n  last committed offset = 0",
+      "x": 70, "y": 340,
+      "width": 250, "height": 110,
+      "text": "Pod A — OOM KILLED\n--------------------\nRAM: 512 MB / 512 MB\nOutOfMemoryError: GC overhead\n\nmsgs 0-999: CHARGED OK\noffset 0-999: NOT committed\n\nKafka sees: last offset = 0",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f0c8c8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -318,15 +294,13 @@
       "seed": 47022, "version": 1, "versionNonce": 47022,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "💥 Pod A — OOM KILLED\n──────────────────\nRAM: 512 MB / 512 MB\njava.lang.OutOfMemoryError\n\nmessages 0–999: CHARGED ✓\noffset 0–999: NOT committed\nKafka still thinks:\n  last committed offset = 0",
+      "originalText": "Pod A — OOM KILLED\n--------------------\nRAM: 512 MB / 512 MB\nOutOfMemoryError: GC overhead\n\nmsgs 0-999: CHARGED OK\noffset 0-999: NOT committed\n\nKafka sees: last offset = 0",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow to Kafka offset state
     {
       "id": "s2-arrow1",
       "type": "arrow",
-      "x": 322, "y": 400,
+      "x": 332, "y": 393,
       "width": 130, "height": 0,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -337,14 +311,12 @@
       "lastCommittedPoint": null, "startBinding": null, "endBinding": null,
       "startArrowhead": null, "endArrowhead": "arrow"
     },
-
-    // Kafka offset state box
     {
       "id": "s2-offset",
       "type": "rectangle",
-      "x": 454, "y": 355,
-      "width": 280, "height": 100,
-      "strokeColor": "#8a7a3a", "backgroundColor": "#3a3a1a",
+      "x": 464, "y": 340,
+      "width": 280, "height": 110,
+      "strokeColor": "#8a7a3a", "backgroundColor": "#2e2a10",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47024, "version": 1, "versionNonce": 47024,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -354,9 +326,9 @@
     {
       "id": "s2-offset-tx",
       "type": "text",
-      "x": 464, "y": 365,
-      "width": 260, "height": 80,
-      "text": "__consumer_offsets (Kafka)\n──────────────────────\nGroup: payflow-consumers\nPartition 0\n  committed offset: 0   ← FROZEN\n  log-end offset:   999\n  lag: 1000 messages",
+      "x": 474, "y": 350,
+      "width": 260, "height": 90,
+      "text": "__consumer_offsets (Kafka internal)\n------------------------------------\nGroup: payflow-consumers\nTopic: payment_events\nPartition 0\n  committed offset : 0   <- FROZEN\n  log-end offset   : 999\n  consumer lag     : 1000",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f9e2af", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -364,17 +336,15 @@
       "seed": 47025, "version": 1, "versionNonce": 47025,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "__consumer_offsets (Kafka)\n──────────────────────\nGroup: payflow-consumers\nPartition 0\n  committed offset: 0   ← FROZEN\n  log-end offset:   999\n  lag: 1000 messages",
+      "originalText": "__consumer_offsets (Kafka internal)\n------------------------------------\nGroup: payflow-consumers\nTopic: payment_events\nPartition 0\n  committed offset : 0   <- FROZEN\n  log-end offset   : 999\n  consumer lag     : 1000",
       "angle": 0, "groupIds": []
     },
-
-    // Warning callout
     {
       "id": "s2-warn",
       "type": "rectangle",
-      "x": 758, "y": 355,
-      "width": 220, "height": 100,
-      "strokeColor": "#e64553", "backgroundColor": "#3a1010",
+      "x": 762, "y": 330,
+      "width": 230, "height": 130,
+      "strokeColor": "#cc2222", "backgroundColor": "#3a0808",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47026, "version": 1, "versionNonce": 47026,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -384,9 +354,9 @@
     {
       "id": "s2-warn-tx",
       "type": "text",
-      "x": 768, "y": 362,
-      "width": 200, "height": 88,
-      "text": "⚠️ KEY INSIGHT\n\nCharges went through.\nOffset did NOT advance.\nKafka has no idea\nthe work was done.\nThese 1000 messages\nwill be redelivered.",
+      "x": 772, "y": 340,
+      "width": 210, "height": 110,
+      "text": "KEY INSIGHT\n\nCharges: went through\nOffset commit: NEVER ran\n\nKafka has no way to know\nthe work was done.\n\nThese 1000 messages WILL\nbe redelivered on restart.",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -394,19 +364,16 @@
       "seed": 47027, "version": 1, "versionNonce": 47027,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "⚠️ KEY INSIGHT\n\nCharges went through.\nOffset did NOT advance.\nKafka has no idea\nthe work was done.\nThese 1000 messages\nwill be redelivered.",
+      "originalText": "KEY INSIGHT\n\nCharges: went through\nOffset commit: NEVER ran\n\nKafka has no way to know\nthe work was done.\n\nThese 1000 messages WILL\nbe redelivered on restart.",
       "angle": 0, "groupIds": []
     },
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // SCENE 3 — REBALANCE
-    // ══════════════════════════════════════════════════════════════════════════
     {
       "id": "s3-label",
       "type": "text",
-      "x": 60, "y": 488,
-      "width": 700, "height": 24,
-      "text": "SCENE 3 — Kafka detects Pod A is gone. Rebalance. Pod B inherits Partition 0.",
+      "x": 60, "y": 484,
+      "width": 800, "height": 22,
+      "text": "SCENE 3 — Kafka detects Pod A gone. Rebalance. Pod B picks up Partition 0 from offset 0.",
       "fontSize": 14, "fontFamily": 1,
       "strokeColor": "#fab387", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -414,15 +381,13 @@
       "seed": 47030, "version": 1, "versionNonce": 47030,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "SCENE 3 — Kafka detects Pod A is gone. Rebalance. Pod B inherits Partition 0.",
+      "originalText": "SCENE 3 — Kafka detects Pod A gone. Rebalance. Pod B picks up Partition 0 from offset 0.",
       "angle": 0, "groupIds": []
     },
-
-    // Kafka Coordinator box
     {
       "id": "s3-coord",
       "type": "rectangle",
-      "x": 60, "y": 520,
+      "x": 60, "y": 514,
       "width": 220, "height": 120,
       "strokeColor": "#4a7a9a", "backgroundColor": "#1e3a4e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -434,9 +399,9 @@
     {
       "id": "s3-coord-tx",
       "type": "text",
-      "x": 70, "y": 530,
+      "x": 70, "y": 524,
       "width": 200, "height": 100,
-      "text": "Kafka Group Coordinator\n──────────────────\nheartbeat timeout: 30s\nPod A: SILENT ✗\n\nTriggering REBALANCE\nReassigning partitions\nto surviving consumers",
+      "text": "Kafka Group Coordinator\n------------------------\nheartbeat timeout: 30s\nPod A: SILENT\n\nTriggering REBALANCE\nReassigning partitions\nto surviving consumers",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#89dceb", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -444,15 +409,13 @@
       "seed": 47032, "version": 1, "versionNonce": 47032,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Kafka Group Coordinator\n──────────────────\nheartbeat timeout: 30s\nPod A: SILENT ✗\n\nTriggering REBALANCE\nReassigning partitions\nto surviving consumers",
+      "originalText": "Kafka Group Coordinator\n------------------------\nheartbeat timeout: 30s\nPod A: SILENT\n\nTriggering REBALANCE\nReassigning partitions\nto surviving consumers",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow: Coordinator → Pod B
     {
       "id": "s3-arrow1",
       "type": "arrow",
-      "x": 282, "y": 578,
+      "x": 282, "y": 573,
       "width": 140, "height": 0,
       "strokeColor": "#fab387", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -466,8 +429,8 @@
     {
       "id": "s3-arrow1-tx",
       "type": "text",
-      "x": 296, "y": 558,
-      "width": 114, "height": 16,
+      "x": 296, "y": 554,
+      "width": 114, "height": 18,
       "text": "Assign Partition 0",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#fab387", "backgroundColor": "transparent",
@@ -479,14 +442,12 @@
       "originalText": "Assign Partition 0",
       "angle": 0, "groupIds": []
     },
-
-    // Pod B box
     {
       "id": "s3-podb",
       "type": "rectangle",
-      "x": 424, "y": 520,
-      "width": 240, "height": 120,
-      "strokeColor": "#8a7a3a", "backgroundColor": "#3a3a1a",
+      "x": 424, "y": 514,
+      "width": 250, "height": 120,
+      "strokeColor": "#8a7a3a", "backgroundColor": "#2e2a10",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47035, "version": 1, "versionNonce": 47035,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -496,9 +457,9 @@
     {
       "id": "s3-podb-tx",
       "type": "text",
-      "x": 434, "y": 530,
-      "width": 220, "height": 100,
-      "text": "Pod B (new owner of P0)\n──────────────────\nReads committed offset = 0\n\nAsks Kafka:\n  \"Give me msgs from offset 0\"\n\nGets: msgs 0–999\n  (SAME 1000 messages)",
+      "x": 434, "y": 524,
+      "width": 230, "height": 100,
+      "text": "Pod B (new owner of Partition 0)\n---------------------------------\nReads committed offset = 0\n\nFetches from Kafka:\n  msgs 0-999 (SAME batch)\n\ncalls paymentService.charge()\nfor ALL 1000 events again",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f9e2af", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -506,31 +467,29 @@
       "seed": 47036, "version": 1, "versionNonce": 47036,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Pod B (new owner of P0)\n──────────────────\nReads committed offset = 0\n\nAsks Kafka:\n  \"Give me msgs from offset 0\"\n\nGets: msgs 0–999\n  (SAME 1000 messages)",
+      "originalText": "Pod B (new owner of Partition 0)\n---------------------------------\nReads committed offset = 0\n\nFetches from Kafka:\n  msgs 0-999 (SAME batch)\n\ncalls paymentService.charge()\nfor ALL 1000 events again",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow: Pod B → Payment Gateway (second charge)
     {
       "id": "s3-arrow2",
       "type": "arrow",
-      "x": 666, "y": 578,
-      "width": 120, "height": 0,
+      "x": 676, "y": 573,
+      "width": 100, "height": 0,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47037, "version": 1, "versionNonce": 47037,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "angle": 0, "groupIds": [],
-      "points": [[0,0],[120,0]],
+      "points": [[0,0],[100,0]],
       "lastCommittedPoint": null, "startBinding": null, "endBinding": null,
       "startArrowhead": null, "endArrowhead": "arrow"
     },
     {
       "id": "s3-arrow2-tx",
       "type": "text",
-      "x": 678, "y": 558,
-      "width": 100, "height": 16,
-      "text": "charge($$) AGAIN",
+      "x": 680, "y": 554,
+      "width": 96, "height": 18,
+      "text": "charge() AGAIN",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -538,16 +497,14 @@
       "seed": 47038, "version": 1, "versionNonce": 47038,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "charge($$) AGAIN",
+      "originalText": "charge() AGAIN",
       "angle": 0, "groupIds": []
     },
-
-    // Payment Gateway (double charge)
     {
       "id": "s3-pg",
       "type": "rectangle",
-      "x": 788, "y": 530,
-      "width": 200, "height": 100,
+      "x": 778, "y": 514,
+      "width": 214, "height": 120,
       "strokeColor": "#8a3a3a", "backgroundColor": "#4a1a1a",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47039, "version": 1, "versionNonce": 47039,
@@ -558,9 +515,9 @@
     {
       "id": "s3-pg-tx",
       "type": "text",
-      "x": 798, "y": 540,
-      "width": 180, "height": 80,
-      "text": "Payment Gateway\n──────────────\nCharge #1 (Pod A): ✓\nCharge #2 (Pod B): ✓\n\n1000 customers\ncharged TWICE 💸",
+      "x": 788, "y": 524,
+      "width": 194, "height": 100,
+      "text": "Payment Gateway\n-----------------\nCharge by Pod A: OK\nCharge by Pod B: OK\n\n1000 customers\ncharged TWICE\n\nTotal: 2x revenue lost",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f0c8c8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -568,19 +525,16 @@
       "seed": 47040, "version": 1, "versionNonce": 47040,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Payment Gateway\n──────────────\nCharge #1 (Pod A): ✓\nCharge #2 (Pod B): ✓\n\n1000 customers\ncharged TWICE 💸",
+      "originalText": "Payment Gateway\n-----------------\nCharge by Pod A: OK\nCharge by Pod B: OK\n\n1000 customers\ncharged TWICE\n\nTotal: 2x revenue lost",
       "angle": 0, "groupIds": []
     },
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // SCENE 4 — CASCADING FALLOUT
-    // ══════════════════════════════════════════════════════════════════════════
     {
       "id": "s4-label",
       "type": "text",
-      "x": 60, "y": 668,
-      "width": 900, "height": 24,
-      "text": "SCENE 4 — The Fallout: Refund storm → Support flooded → Payment Gateway flags PayFlow for fraud",
+      "x": 60, "y": 660,
+      "width": 900, "height": 22,
+      "text": "SCENE 4 — The Fallout: Refund storm  ->  Support flooded  ->  Fraud flag",
       "fontSize": 14, "fontFamily": 1,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -588,17 +542,15 @@
       "seed": 47050, "version": 1, "versionNonce": 47050,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "SCENE 4 — The Fallout: Refund storm → Support flooded → Payment Gateway flags PayFlow for fraud",
+      "originalText": "SCENE 4 — The Fallout: Refund storm  ->  Support flooded  ->  Fraud flag",
       "angle": 0, "groupIds": []
     },
-
-    // Customers box
     {
       "id": "s4-customers",
       "type": "rectangle",
-      "x": 60, "y": 700,
-      "width": 190, "height": 100,
-      "strokeColor": "#8a3a3a", "backgroundColor": "#3a1010",
+      "x": 60, "y": 690,
+      "width": 200, "height": 110,
+      "strokeColor": "#8a3a3a", "backgroundColor": "#3a0808",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47051, "version": 1, "versionNonce": 47051,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -608,9 +560,9 @@
     {
       "id": "s4-customers-tx",
       "type": "text",
-      "x": 70, "y": 710,
-      "width": 170, "height": 80,
-      "text": "😡 1000 Customers\n──────────────\nBank notification:\n\"Duplicate charge\"\nAngry emails\nChargeback requests\nTweets: #PayFlowScam",
+      "x": 70, "y": 700,
+      "width": 180, "height": 90,
+      "text": "1000 Customers\n------------------\nBank SMS: duplicate\nChargeback filed\nAngry emails\nTweets: #Scam\nApp store: 1-star",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f0c8c8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -618,15 +570,13 @@
       "seed": 47052, "version": 1, "versionNonce": 47052,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "😡 1000 Customers\n──────────────\nBank notification:\n\"Duplicate charge\"\nAngry emails\nChargeback requests\nTweets: #PayFlowScam",
+      "originalText": "1000 Customers\n------------------\nBank SMS: duplicate\nChargeback filed\nAngry emails\nTweets: #Scam\nApp store: 1-star",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow customers → support
     {
       "id": "s4-arr1",
       "type": "arrow",
-      "x": 252, "y": 750,
+      "x": 262, "y": 744,
       "width": 100, "height": 0,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -637,14 +587,12 @@
       "lastCommittedPoint": null, "startBinding": null, "endBinding": null,
       "startArrowhead": null, "endArrowhead": "arrow"
     },
-
-    // Customer Support box
     {
       "id": "s4-support",
       "type": "rectangle",
-      "x": 354, "y": 700,
-      "width": 200, "height": 100,
-      "strokeColor": "#8a5a3a", "backgroundColor": "#3a2010",
+      "x": 364, "y": 690,
+      "width": 210, "height": 110,
+      "strokeColor": "#8a5a3a", "backgroundColor": "#2e1408",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47054, "version": 1, "versionNonce": 47054,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -654,9 +602,9 @@
     {
       "id": "s4-support-tx",
       "type": "text",
-      "x": 364, "y": 710,
-      "width": 180, "height": 80,
-      "text": "😰 Customer Support\n──────────────\n+1000 tickets in 1 hour\nQueue: 3 hour wait\nRefund processing:\n  each refund: manual\n  total cost: ~$15,000\nTeam: overwhelmed",
+      "x": 374, "y": 700,
+      "width": 190, "height": 90,
+      "text": "Customer Support\n------------------\n+1000 tickets / 1 hour\nWait time: 3 hours\nEach refund: manual\nCost: ~$15,000\nTeam: overwhelmed",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#f0dcc8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -664,15 +612,13 @@
       "seed": 47055, "version": 1, "versionNonce": 47055,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "😰 Customer Support\n──────────────\n+1000 tickets in 1 hour\nQueue: 3 hour wait\nRefund processing:\n  each refund: manual\n  total cost: ~$15,000\nTeam: overwhelmed",
+      "originalText": "Customer Support\n------------------\n+1000 tickets / 1 hour\nWait time: 3 hours\nEach refund: manual\nCost: ~$15,000\nTeam: overwhelmed",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow support → payment gateway (chargebacks)
     {
       "id": "s4-arr2",
       "type": "arrow",
-      "x": 556, "y": 750,
+      "x": 576, "y": 744,
       "width": 100, "height": 0,
       "strokeColor": "#f38ba8", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -683,14 +629,12 @@
       "lastCommittedPoint": null, "startBinding": null, "endBinding": null,
       "startArrowhead": null, "endArrowhead": "arrow"
     },
-
-    // Payment Gateway fraud flag box
     {
       "id": "s4-fraud",
       "type": "rectangle",
-      "x": 658, "y": 700,
-      "width": 220, "height": 100,
-      "strokeColor": "#aa2222", "backgroundColor": "#5a0a0a",
+      "x": 678, "y": 690,
+      "width": 234, "height": 110,
+      "strokeColor": "#cc2222", "backgroundColor": "#4a0808",
       "fillStyle": "solid", "strokeWidth": 3, "roughness": 0, "opacity": 100,
       "seed": 47057, "version": 1, "versionNonce": 47057,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -700,29 +644,26 @@
     {
       "id": "s4-fraud-tx",
       "type": "text",
-      "x": 668, "y": 710,
-      "width": 200, "height": 80,
-      "text": "🚨 Payment Gateway\n──────────────\nANOMALY DETECTED\n\nPayFlow chargeback rate:\n  threshold: 1%\n  actual: 100%\n\nACCOUNT FLAGGED\nfor review / suspension",
+      "x": 688, "y": 700,
+      "width": 214, "height": 90,
+      "text": "Payment Gateway\nANOMALY DETECTED\n------------------\nChargeback rate threshold: 1%\nPayFlow actual rate: 100%\n\nACCOUNT FLAGGED\nReview / Suspension pending",
       "fontSize": 11, "fontFamily": 1,
-      "strokeColor": "#ff8888", "backgroundColor": "transparent",
+      "strokeColor": "#ff9090", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
       "textAlign": "center", "verticalAlign": "top",
       "seed": 47058, "version": 1, "versionNonce": 47058,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "🚨 Payment Gateway\n──────────────\nANOMALY DETECTED\n\nPayFlow chargeback rate:\n  threshold: 1%\n  actual: 100%\n\nACCOUNT FLAGGED\nfor review / suspension",
+      "originalText": "Payment Gateway\nANOMALY DETECTED\n------------------\nChargeback rate threshold: 1%\nPayFlow actual rate: 100%\n\nACCOUNT FLAGGED\nReview / Suspension pending",
       "angle": 0, "groupIds": []
     },
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // SCENE 5 — THE FIX: IDEMPOTENCY KEY
-    // ══════════════════════════════════════════════════════════════════════════
     {
       "id": "s5-label",
       "type": "text",
       "x": 60, "y": 828,
-      "width": 900, "height": 24,
-      "text": "SCENE 5 — The Fix: Idempotency Key. Same message redelivered → charge skipped.",
+      "width": 900, "height": 22,
+      "text": "SCENE 5 — The Fix: Idempotency Key. Same message redelivered -> charge is skipped.",
       "fontSize": 14, "fontFamily": 1,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -730,16 +671,14 @@
       "seed": 47060, "version": 1, "versionNonce": 47060,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "SCENE 5 — The Fix: Idempotency Key. Same message redelivered → charge skipped.",
+      "originalText": "SCENE 5 — The Fix: Idempotency Key. Same message redelivered -> charge is skipped.",
       "angle": 0, "groupIds": []
     },
-
-    // Pod B with fix
     {
       "id": "s5-podb",
       "type": "rectangle",
-      "x": 60, "y": 860,
-      "width": 280, "height": 140,
+      "x": 60, "y": 858,
+      "width": 290, "height": 140,
       "strokeColor": "#4a8a5a", "backgroundColor": "#1e3a2e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47061, "version": 1, "versionNonce": 47061,
@@ -750,9 +689,9 @@
     {
       "id": "s5-podb-tx",
       "type": "text",
-      "x": 70, "y": 870,
-      "width": 260, "height": 120,
-      "text": "Pod B (with idempotency fix)\n──────────────────────\nreceives msg: {eventId: \"evt_001\"}\n\nidempotencyKey =\n  sha256(eventId + userId + amount)\n\nCHECK Redis / DB:\n  key exists? → SKIP charge\n  key missing? → charge + store key",
+      "x": 70, "y": 868,
+      "width": 270, "height": 120,
+      "text": "Pod B (with idempotency fix)\n-----------------------------\nreceives: {eventId: \"evt_001\"}\n\nidempotencyKey =\n  sha256(eventId+userId+amount)\n\nCHECK Redis:\n  key exists? SKIP charge\n  key missing? charge + store key",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#c8f0d0", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -760,15 +699,13 @@
       "seed": 47062, "version": 1, "versionNonce": 47062,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Pod B (with idempotency fix)\n──────────────────────\nreceives msg: {eventId: \"evt_001\"}\n\nidempotencyKey =\n  sha256(eventId + userId + amount)\n\nCHECK Redis / DB:\n  key exists? → SKIP charge\n  key missing? → charge + store key",
+      "originalText": "Pod B (with idempotency fix)\n-----------------------------\nreceives: {eventId: \"evt_001\"}\n\nidempotencyKey =\n  sha256(eventId+userId+amount)\n\nCHECK Redis:\n  key exists? SKIP charge\n  key missing? charge + store key",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow Pod B → Redis
     {
       "id": "s5-arr1",
       "type": "arrow",
-      "x": 342, "y": 928,
+      "x": 352, "y": 926,
       "width": 110, "height": 0,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
@@ -782,7 +719,7 @@
     {
       "id": "s5-arr1-tx",
       "type": "text",
-      "x": 352, "y": 910,
+      "x": 362, "y": 908,
       "width": 92, "height": 16,
       "text": "SET NX / GET",
       "fontSize": 11, "fontFamily": 1,
@@ -795,13 +732,11 @@
       "originalText": "SET NX / GET",
       "angle": 0, "groupIds": []
     },
-
-    // Redis box
     {
       "id": "s5-redis",
       "type": "rectangle",
-      "x": 454, "y": 880,
-      "width": 240, "height": 110,
+      "x": 464, "y": 876,
+      "width": 250, "height": 110,
       "strokeColor": "#4a8a5a", "backgroundColor": "#1e3a2e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47065, "version": 1, "versionNonce": 47065,
@@ -812,9 +747,9 @@
     {
       "id": "s5-redis-tx",
       "type": "text",
-      "x": 464, "y": 890,
-      "width": 220, "height": 90,
-      "text": "Redis (Idempotency Store)\n──────────────────────\nKey: sha256(evt_001+u1+$50)\nValue: \"charged\"\nTTL: 24h\n\nPod A wrote this ✓\nPod B finds it → SKIP ✓",
+      "x": 474, "y": 886,
+      "width": 230, "height": 90,
+      "text": "Redis (Idempotency Store)\n--------------------------\nKey: sha256(evt_001+u1+$50)\nValue: \"processed\"\nTTL: 24h\n\nPod A wrote this key\nPod B finds key: SKIP",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#c8f0d0", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -822,30 +757,28 @@
       "seed": 47066, "version": 1, "versionNonce": 47066,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Redis (Idempotency Store)\n──────────────────────\nKey: sha256(evt_001+u1+$50)\nValue: \"charged\"\nTTL: 24h\n\nPod A wrote this ✓\nPod B finds it → SKIP ✓",
+      "originalText": "Redis (Idempotency Store)\n--------------------------\nKey: sha256(evt_001+u1+$50)\nValue: \"processed\"\nTTL: 24h\n\nPod A wrote this key\nPod B finds key: SKIP",
       "angle": 0, "groupIds": []
     },
-
-    // Arrow Redis → Payment Gateway (skipped)
     {
       "id": "s5-arr2",
       "type": "arrow",
-      "x": 696, "y": 928,
-      "width": 110, "height": 0,
+      "x": 716, "y": 926,
+      "width": 100, "height": 0,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47067, "version": 1, "versionNonce": 47067,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "angle": 0, "groupIds": [],
-      "points": [[0,0],[110,0]],
+      "points": [[0,0],[100,0]],
       "lastCommittedPoint": null, "startBinding": null, "endBinding": null,
       "startArrowhead": null, "endArrowhead": "arrow"
     },
     {
       "id": "s5-arr2-tx",
       "type": "text",
-      "x": 700, "y": 910,
-      "width": 100, "height": 16,
+      "x": 720, "y": 908,
+      "width": 96, "height": 16,
       "text": "charge SKIPPED",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#a6e3a1", "backgroundColor": "transparent",
@@ -857,13 +790,11 @@
       "originalText": "charge SKIPPED",
       "angle": 0, "groupIds": []
     },
-
-    // Payment Gateway (safe)
     {
       "id": "s5-pg",
       "type": "rectangle",
-      "x": 808, "y": 880,
-      "width": 200, "height": 100,
+      "x": 818, "y": 876,
+      "width": 200, "height": 110,
       "strokeColor": "#4a8a5a", "backgroundColor": "#1e3a2e",
       "fillStyle": "solid", "strokeWidth": 2, "roughness": 0, "opacity": 100,
       "seed": 47069, "version": 1, "versionNonce": 47069,
@@ -874,9 +805,9 @@
     {
       "id": "s5-pg-tx",
       "type": "text",
-      "x": 818, "y": 890,
-      "width": 180, "height": 80,
-      "text": "Payment Gateway\n──────────────\nCharge #1 (Pod A): ✓\nCharge #2 (Pod B): SKIPPED\n\n1000 customers\ncharged ONCE only ✅",
+      "x": 828, "y": 886,
+      "width": 180, "height": 90,
+      "text": "Payment Gateway\n-----------------\nCharge by Pod A: OK\nCharge by Pod B: SKIPPED\n\n1000 customers\ncharged exactly ONCE\nNo chargebacks",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#c8f0d0", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -884,19 +815,16 @@
       "seed": 47070, "version": 1, "versionNonce": 47070,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Payment Gateway\n──────────────\nCharge #1 (Pod A): ✓\nCharge #2 (Pod B): SKIPPED\n\n1000 customers\ncharged ONCE only ✅",
+      "originalText": "Payment Gateway\n-----------------\nCharge by Pod A: OK\nCharge by Pod B: SKIPPED\n\n1000 customers\ncharged exactly ONCE\nNo chargebacks",
       "angle": 0, "groupIds": []
     },
 
-    // ══════════════════════════════════════════════════════════════════════════
-    // BOTTOM SUMMARY BAR
-    // ══════════════════════════════════════════════════════════════════════════
     {
       "id": "summary-bg",
       "type": "rectangle",
       "x": 60, "y": 1020,
-      "width": 950, "height": 90,
-      "strokeColor": "#4a7a9a", "backgroundColor": "#12202e",
+      "width": 960, "height": 96,
+      "strokeColor": "#4a7a9a", "backgroundColor": "#0e1826",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
       "seed": 47080, "version": 1, "versionNonce": 47080,
       "isDeleted": false, "boundElements": null, "updated": 1,
@@ -907,8 +835,8 @@
       "id": "summary-tx",
       "type": "text",
       "x": 78, "y": 1030,
-      "width": 914, "height": 70,
-      "text": "Root cause: Kafka's at-least-once delivery guarantee. A crash before commitSync() = messages redelivered to next consumer.\nThe guarantee Kafka gives you: every message will be delivered AT LEAST ONCE. Never exactly once — unless you build idempotency.\nThe fix: Store a processed eventId in Redis (SET NX, TTL 24h) before charging. On redelivery: key exists → skip. Charge happens exactly once.\nRule: Never perform a non-idempotent side effect (payment, email, DB write) in a Kafka consumer without an idempotency check.",
+      "width": 924, "height": 76,
+      "text": "Root cause: Kafka guarantees at-least-once delivery. Crash before commitSync() = messages redelivered. The work happened; Kafka does not know.\nThe fix: Before any non-idempotent side effect (charge, email, DB write), store a processed key in Redis (SET NX, TTL 24h).\n  On first delivery: key missing -> charge -> store key. On redelivery: key exists -> skip.\nRule: every Kafka consumer that triggers a side effect MUST implement idempotency. Exactly-once semantics start in your code, not in Kafka.",
       "fontSize": 11, "fontFamily": 1,
       "strokeColor": "#cdd6f4", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -916,10 +844,9 @@
       "seed": 47081, "version": 1, "versionNonce": 47081,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Root cause: Kafka's at-least-once delivery guarantee. A crash before commitSync() = messages redelivered to next consumer.\nThe guarantee Kafka gives you: every message will be delivered AT LEAST ONCE. Never exactly once — unless you build idempotency.\nThe fix: Store a processed eventId in Redis (SET NX, TTL 24h) before charging. On redelivery: key exists → skip. Charge happens exactly once.\nRule: Never perform a non-idempotent side effect (payment, email, DB write) in a Kafka consumer without an idempotency check.",
+      "originalText": "Root cause: Kafka guarantees at-least-once delivery. Crash before commitSync() = messages redelivered. The work happened; Kafka does not know.\nThe fix: Before any non-idempotent side effect (charge, email, DB write), store a processed key in Redis (SET NX, TTL 24h).\n  On first delivery: key missing -> charge -> store key. On redelivery: key exists -> skip.\nRule: every Kafka consumer that triggers a side effect MUST implement idempotency. Exactly-once semantics start in your code, not in Kafka.",
       "angle": 0, "groupIds": []
     }
-
   ],
   "appState": {
     "theme": "dark",
