@@ -850,7 +850,7 @@
   ],
   "appState": {
     "theme": "dark",
-    "viewBackgroundColor": "#1e1e2e",
+    "viewBackgroundColor": "#000000",
     "gridSize": null,
     "zoom": { "value": 1 }
   }
