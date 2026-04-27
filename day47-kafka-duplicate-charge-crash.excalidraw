@@ -8,7 +8,7 @@
       "type": "text",
       "x": 60, "y": 20,
       "width": 1100, "height": 48,
-      "text": "Day 47 · The Kafka OOM Crash That Charged 1000 Customers Twice",
+      "text": "Day 49 · The Kafka OOM Crash That Charged 1000 Customers Twice",
       "fontSize": 24, "fontFamily": 1,
       "strokeColor": "#cdd6f4", "backgroundColor": "transparent",
       "fillStyle": "solid", "strokeWidth": 1, "roughness": 0, "opacity": 100,
@@ -16,7 +16,7 @@
       "seed": 47001, "version": 1, "versionNonce": 47001,
       "isDeleted": false, "boundElements": null, "updated": 1,
       "link": null, "locked": false, "containerId": null,
-      "originalText": "Day 47 · The Kafka OOM Crash That Charged 1000 Customers Twice",
+      "originalText": "Day 49 · The Kafka OOM Crash That Charged 1000 Customers Twice",
       "angle": 0, "groupIds": []
     },
     {
