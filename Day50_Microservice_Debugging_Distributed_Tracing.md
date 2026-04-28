@@ -303,6 +303,212 @@ flowchart LR
 **spanId** = one hop in the journey. Each service call is a new span.
 **parentSpanId** = which span called this one. This builds the tree.
 
+---
+
+## How spanId and parentSpanId Build the Trace Tree
+
+This is the part most engineers gloss over. Let's go deep.
+
+Every time a service receives a request **or** makes an outbound call, it creates a new span. A span has three IDs:
+
+```
+traceId     — stays the same across the entire request lifecycle
+spanId      — unique ID for THIS span (this unit of work)
+parentSpanId — the spanId of whoever called me (null for the root span)
+```
+
+Here is the exact logic for how each service generates and uses these:
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {
+  'primaryTextColor': '#cdd6f4',
+  'lineColor': '#6c6c8a'
+}}}%%
+flowchart TB
+    subgraph GW ["API Gateway — entry point"]
+        GW1["Incoming request:\n  No traceparent header\n  → I am the root\n\nGenerate:\n  traceId    = random UUID (128-bit)\n  spanId     = random (64-bit)\n  parentSpanId = null\n\nSet in MDC:\n  traceId    = a3f7c2...\n  spanId     = span-0001\n\nAdd header to outbound call:\n  traceparent: 00-a3f7c2...-span-0001-01"]
+    end
+
+    subgraph OS ["Order Service — receives from Gateway"]
+        OS1["Incoming request:\n  traceparent: 00-a3f7c2...-span-0001-01\n  → Extract:\n     traceId     = a3f7c2...   (KEEP — same)\n     parentSpanId = span-0001   (Gateway's spanId)\n\nGenerate:\n  spanId = span-0002  (MY new unique ID)\n\nSet in MDC:\n  traceId     = a3f7c2...\n  spanId      = span-0002\n  parentSpanId = span-0001\n\nAdd header to outbound call to Payment:\n  traceparent: 00-a3f7c2...-span-0002-01"]
+    end
+
+    subgraph PS ["Payment Service — receives from Order Service"]
+        PS1["Incoming request:\n  traceparent: 00-a3f7c2...-span-0002-01\n  → Extract:\n     traceId     = a3f7c2...   (KEEP — same)\n     parentSpanId = span-0002   (Order Service's spanId)\n\nGenerate:\n  spanId = span-0003  (MY new unique ID)\n\nSet in MDC:\n  traceId     = a3f7c2...\n  spanId      = span-0003\n  parentSpanId = span-0002\n\nAdd header to outbound call to Bank:\n  traceparent: 00-a3f7c2...-span-0003-01"]
+    end
+
+    subgraph SS ["Shipping Service — receives from Payment Service"]
+        SS1["Incoming request:\n  traceparent: 00-a3f7c2...-span-0003-01\n  → Extract:\n     traceId     = a3f7c2...   (KEEP — same)\n     parentSpanId = span-0003   (Payment Service's spanId)\n\nGenerate:\n  spanId = span-0004  (MY new unique ID)\n\nSet in MDC:\n  traceId     = a3f7c2...\n  spanId      = span-0004\n  parentSpanId = span-0003"]
+    end
+
+    GW --> OS --> PS --> SS
+
+    style GW1 fill:#2a4b6e,stroke:#4a7a9a,color:#e0e0e0
+    style OS1 fill:#2e3a1e,stroke:#4e6a3a,color:#d0e8c0
+    style PS1 fill:#1e2e3a,stroke:#3a5a6e,color:#c0d8e8
+    style SS1 fill:#3a2e1e,stroke:#6a5a3a,color:#e8d8c0
+```
+
+**The rule for every service:**
+
+```
+On incoming request:
+  if traceparent header EXISTS:
+    traceId      = extract from header           ← keep the same
+    parentSpanId = extract spanId from header    ← caller's spanId becomes MY parent
+    spanId       = generate NEW random 64-bit ID ← I get my own fresh ID
+
+  if traceparent header MISSING:
+    traceId      = generate NEW random 128-bit ID ← I am the root
+    parentSpanId = null                           ← no parent
+    spanId       = generate NEW random 64-bit ID
+
+On every outbound HTTP call:
+  inject header: traceparent: 00-{traceId}-{MY spanId}-01
+                                          ↑ MY spanId (not parent's)
+                                          ← downstream will make this THEIR parentSpanId
+```
+
+Here is the key line that most engineers miss: **when you make an outbound call, you put YOUR spanId in the header — not your parent's.** The downstream service will then use YOUR spanId as its `parentSpanId`. This is how the parent-child relationship is formed.
+
+### The Trace Tree Built From These IDs
+
+After the full request completes, Jaeger reconstructs this tree from the spans:
+
+```
+Trace: a3f7c2...
+│
+├── span-0001  API Gateway          POST /checkout         [0ms → 1450ms]
+│   │
+│   └── span-0002  Order Service    createOrder()          [111ms → 1430ms]
+│       │
+│       └── span-0003  Payment Svc  processPayment()       [150ms → 1420ms]
+│           │
+│           ├── span-0005  Bank API  POST /charge [TIMEOUT] [160ms → 1400ms]
+│           │
+│           └── span-0004  Shipping  scheduleDelivery()    [never started — span missing]
+```
+
+The tree is built purely from `parentSpanId` relationships:
+- span-0002's `parentSpanId` = span-0001 → it's a child of the Gateway span
+- span-0003's `parentSpanId` = span-0002 → it's a child of the Order Service span
+- span-0005's `parentSpanId` = span-0003 → it's a child of the Payment Service span
+
+When span-0004 is missing entirely, Jaeger shows a gap — the shipping call was never made. That gap is visible without reading a single log line.
+
+### The W3C traceparent Header Format
+
+```
+traceparent: 00-a3f7c2b1d4e5f6a7b8c9d0e1f2a3b4c5-span0002a3b4c5d6-01
+             ↑  ↑                                  ↑                ↑
+             |  |                                  |                |
+             |  traceId (32 hex chars = 128 bits)  |                flags
+             |                                     |                (01 = sampled)
+             version (always 00)                   spanId (16 hex chars = 64 bits)
+                                                   ← this is YOUR spanId
+                                                   ← receiver makes it THEIR parentSpanId
+```
+
+### Code: How OpenTelemetry Handles This Automatically
+
+With OpenTelemetry auto-instrumentation, all of the above is handled for you. But understanding it manually helps when debugging:
+
+```java
+// Manual implementation of what OTel does automatically — for understanding
+@Component
+public class TracingFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
+            throws IOException, ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) req;
+        String traceparent = request.getHeader("traceparent");
+
+        String traceId, spanId, parentSpanId;
+
+        if (traceparent != null) {
+            // Format: 00-<traceId>-<parentSpanId>-<flags>
+            String[] parts = traceparent.split("-");
+            traceId      = parts[1];   // keep the same traceId
+            parentSpanId = parts[2];   // the caller's spanId becomes MY parentSpanId
+        } else {
+            traceId      = generateTraceId();  // I am the root — generate fresh
+            parentSpanId = null;
+        }
+
+        spanId = generateSpanId();    // always generate a NEW spanId for myself
+
+        // Put into MDC so every log line in this thread gets these values
+        MDC.put("traceId",      traceId);
+        MDC.put("spanId",       spanId);
+        MDC.put("parentSpanId", parentSpanId != null ? parentSpanId : "root");
+
+        try {
+            chain.doFilter(req, res);
+        } finally {
+            MDC.clear();
+        }
+    }
+
+    private String generateTraceId() {
+        // 128-bit random, hex encoded — 32 characters
+        return UUID.randomUUID().toString().replace("-", "")
+             + UUID.randomUUID().toString().replace("-", "").substring(0, 0);
+    }
+
+    private String generateSpanId() {
+        // 64-bit random, hex encoded — 16 characters
+        return Long.toHexString(ThreadLocalRandom.current().nextLong())
+             + Long.toHexString(ThreadLocalRandom.current().nextLong());
+    }
+}
+
+// Outbound HTTP call — inject the header with MY spanId (not parent's)
+@Component
+public class TracingHttpInterceptor implements ClientHttpRequestInterceptor {
+
+    @Override
+    public ClientHttpResponse intercept(HttpRequest request, byte[] body,
+                                        ClientHttpRequestExecution execution)
+            throws IOException {
+
+        String traceId = MDC.get("traceId");
+        String mySpanId = MDC.get("spanId");  // MY spanId — downstream makes it their parent
+
+        if (traceId != null && mySpanId != null) {
+            // traceparent: 00-{traceId}-{mySpanId}-01
+            request.getHeaders().add("traceparent",
+                "00-" + traceId + "-" + mySpanId + "-01");
+        }
+
+        return execution.execute(request, body);
+    }
+}
+```
+
+### Why parentSpanId Uses the Caller's spanId (Not the Caller's parentSpanId)
+
+This trips people up in interviews. Let's be explicit:
+
+```
+Gateway      spanId=A  parentSpanId=null
+  │
+  │  outbound header: traceparent=00-traceXYZ-A-01
+  │                                           ↑ Gateway's OWN spanId
+  ↓
+Order Svc    spanId=B  parentSpanId=A    ← A came from header, B is fresh
+  │
+  │  outbound header: traceparent=00-traceXYZ-B-01
+  │                                           ↑ Order Service's OWN spanId
+  ↓
+Payment Svc  spanId=C  parentSpanId=B    ← B came from header, C is fresh
+```
+
+Each service puts **its own freshly generated spanId** into the outbound header. The receiver picks that up as **its parentSpanId**. This creates a clean chain: C's parent is B, B's parent is A, A has no parent. Jaeger reconstructs the tree by walking these parent pointers.
+
+---
+
 ### What Neha's logs look like without vs with tracing
 
 **Without trace ID (what Neha had):**
