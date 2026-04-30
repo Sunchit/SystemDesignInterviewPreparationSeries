@@ -61,6 +61,10 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 44 | Capacity Estimation for Black Friday: How Amazon Prepares for the Madness | [Read](./Day44_Capacity_Estimation_Black_Friday_Amazon.md) |
 | 45 | Why ACID Breaks in Microservices & How the Saga Pattern Fixes It | [Read](./Day45_Why_ACID_Breaks_Microservices_Saga_Pattern.md) |
 | 46 | Kafka Message Ordering: What Juniors Get Wrong & Architects Know | [Read](./Day46_Kafka_Message_Ordering_Partitions_Architects_Know.md) |
+| 47 | Database Connection Pools: The Biggest Blunder in Distributed Systems | [Read](./Day47_Database_Connection_Pool_Biggest_Blunder.md) |
+| 48 | The Idempotency Key That Lied: Two-Phase PENDING/COMPLETED Pattern | [Read](./Day48_Idempotency_The_Key_That_Lied.md) |
+| 49 | The Kafka OOM Crash That Charged 1000 Customers Twice | [Read](./Day49_Kafka_OOM_Crash_Duplicate_Charge_Idempotency.md) |
+| 50 | One Request. A Thousand Logs. Zero Answers. — Distributed Tracing | [Read](./Day50_Microservice_Debugging_Distributed_Tracing.md) |
 
 ---
 
