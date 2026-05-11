@@ -66,6 +66,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 49 | The Kafka OOM Crash That Charged 1000 Customers Twice | [Read](./Day49_Kafka_OOM_Crash_Duplicate_Charge_Idempotency.md) |
 | 50 | One Request. A Thousand Logs. Zero Answers. — Distributed Tracing | [Read](./Day50_Microservice_Debugging_Distributed_Tracing.md) |
 | 51 | The Day Netflix Broke Production on Purpose — Chaos Engineering | [Read](./Day51_Chaos_Engineering_Netflix_Chaos_Monkey.md) |
+| 52 | The Day Netflix Killed an Entire AWS Region — Chaos Kong | [Read](./Day52_Chaos_Kong_Region_Failure_Netflix.md) |
 
 ---
 
