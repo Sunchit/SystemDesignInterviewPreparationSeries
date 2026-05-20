@@ -69,7 +69,6 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 52 | The Day Netflix Killed an Entire AWS Region — Chaos Kong | [Read](./Day52_Chaos_Kong_Region_Failure_Netflix.md) |
 | 53 | The Uber Retry Storm That Almost Broke Surge Pricing | [Read](./Day53_Uber_Retry_Storm_Exponential_Backoff_Circuit_Breaker.md) |
 | 54 | Rendezvous Hashing: The Elegant Cousin of Consistent Hashing (HRW) | [Read](./Day54_Rendezvous_Hashing_Highest_Random_Weight.md) |
-| 55 | Amazon Black Friday Connection Pool Meltdown — The Timeline, The Math, The Fix | [Read](./Day55_Amazon_Black_Friday_Connection_Pool_Meltdown.md) |
 
 ---
 
