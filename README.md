@@ -75,6 +75,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 58 | Beyond 42.zip: The Algorithmic Complexity Attack Family — Billion Laughs, ReDoS, GraphQL Bombs, and the One Defense Pattern That Beats All of Them | [Read](./Day58_Algorithmic_Complexity_Attacks_Family_Universal_Defense.md) |
 | 59 | Rolling, Blue-Green, Canary, or Feature Flags? The Deployment Strategy Decision Tree Every Architect Uses | [Read](./Day59_Deployment_Strategies_Decision_Tree.md) |
 | 60 | 10 TB of Logs a Day, 100k Events per Second: Centralized Logging Server HLD | [Read](./Day60_Centralized_Logging_Server_HLD.md) |
+| 61 | Hot Standby vs Cold Standby — and Why "Cold Start" Is the Same Trade-off in Failover, Serverless, Recommendations, and Databases | [Read](./Day61_Hot_vs_Cold_Standby_Failover_Cold_Start.md) |
 
 ---
 
