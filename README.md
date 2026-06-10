@@ -77,6 +77,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 60 | 10 TB of Logs a Day, 100k Events per Second: Centralized Logging Server HLD | [Read](./Day60_Centralized_Logging_Server_HLD.md) |
 | 61 | Hot Standby vs Cold Standby — and Why "Cold Start" Is the Same Trade-off in Failover, Serverless, Recommendations, and Databases | [Read](./Day61_Hot_vs_Cold_Standby_Failover_Cold_Start.md) |
 | 62 | Design a Distributed Job Scheduler — RabbitMQ Spine, Worker Pool, and the At-Least-Once Discipline | [Read](./Day62_Distributed_Job_Scheduler_RabbitMQ.md) |
+| 63 | UPI Lite's Offline Payment Core — Two Phones Tap, Money Moves, No Internet (TEE, Token Chains & Double-Spend) | [Read](./Day63_UPI_Lite_Offline_Payments_TEE_Double_Spend.md) |
 
 ---
 
