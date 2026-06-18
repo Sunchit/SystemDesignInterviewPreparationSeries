@@ -81,6 +81,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 64 | Database Sharding: Range, Hash, Directory & the Resharding Nightmare — Choosing the Shard Key That Makes or Breaks You | [Read](./Day64_Database_Sharding_Strategies.md) |
 | 65 | LSM Trees vs B-Trees: Why Cassandra Eats Writes for Breakfast and Postgres Doesn't | [Read](./Day65_LSM_Trees_vs_B_Trees.md) |
 | 66 | Access vs Refresh vs ID Token: The Three Tokens Every Architect Confuses (OAuth 2.0 & OIDC) | [Read](./Day66_OAuth_OIDC_Access_Refresh_ID_Tokens.md) |
+| 67 | Build S3 Multipart Upload End-to-End — Node.js + React Tutorial with Architect's Production Notes | [Read](./Day67_S3_Multipart_Upload_Node_React_Tutorial.md) |
 
 ---
 
