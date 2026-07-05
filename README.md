@@ -85,6 +85,8 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 68 | Sharding vs Partitioning: The Architect's Definitive Guide — Partition for Maintenance, Shard for Scale | [Read](./Day68_Sharding_vs_Partitioning_Architects_Definitive_Guide.md) |
 | 69 | Single-Table Design in DynamoDB: Anti‑Pattern or Best Practice? — An Architect's Guide to NoSQL Schema Design | [Read](./Day69_DynamoDB_Single_Table_Design_Anti_Pattern_or_Best_Practice.md) |
 | 70 | The Sequence Breakdown: What Each Layer Does — 6 Logical Routing Layers vs 4 Physical Network Hops (CDN, Gateway, Sidecar, DB Proxy) | [Read](./Day70_Load_Balancing_Layers_Sequence_Breakdown.md) |
+| 71 | Hystrix Internals: Circuit Breaker State Machine & Hysteresis — Rolling Metrics, Bulkheads, and the Asymmetric Thresholds That Stop Flapping | [Read](./Day71_Hystrix_Internals_Circuit_Breaker_Hysteresis.md) |
+| 72 | The Resilience Stack: Layered Defense — Rate Limiter, Circuit Breaker, Bulkhead, Timeout, Retry & Fallback (Numbered ①–⑥) | [Read](./Day72_Resilience_Stack_Layered_Defense.md) |
 
 ---
 
