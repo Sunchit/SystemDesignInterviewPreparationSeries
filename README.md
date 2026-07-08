@@ -87,6 +87,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 70 | The Sequence Breakdown: What Each Layer Does — 6 Logical Routing Layers vs 4 Physical Network Hops (CDN, Gateway, Sidecar, DB Proxy) | [Read](./Day70_Load_Balancing_Layers_Sequence_Breakdown.md) |
 | 71 | Hystrix Internals: Circuit Breaker State Machine & Hysteresis — Rolling Metrics, Bulkheads, and the Asymmetric Thresholds That Stop Flapping | [Read](./Day71_Hystrix_Internals_Circuit_Breaker_Hysteresis.md) |
 | 72 | The Resilience Stack: Layered Defense — Rate Limiter, Circuit Breaker, Bulkhead, Timeout, Retry & Fallback (Numbered ①–⑥) | [Read](./Day72_Resilience_Stack_Layered_Defense.md) |
+| 73 | The Missing Middle: HTTP QUERY Method (RFC 10008) — Safe, Cacheable Search with Request Bodies | [Read](./Day73_HTTP_QUERY_Method_RFC10008_Search_Dilemma.md) |
 
 ---
 
