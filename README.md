@@ -88,6 +88,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 71 | Hystrix Internals: Circuit Breaker State Machine & Hysteresis — Rolling Metrics, Bulkheads, and the Asymmetric Thresholds That Stop Flapping | [Read](./Day71_Hystrix_Internals_Circuit_Breaker_Hysteresis.md) |
 | 72 | The Resilience Stack: Layered Defense — Rate Limiter, Circuit Breaker, Bulkhead, Timeout, Retry & Fallback (Numbered ①–⑥) | [Read](./Day72_Resilience_Stack_Layered_Defense.md) |
 | 73 | The Missing Middle: HTTP QUERY Method (RFC 10008) — Safe, Cacheable Search with Request Bodies | [Read](./Day73_HTTP_QUERY_Method_RFC10008_Search_Dilemma.md) |
+| 74 | Gmail Sign-in Mechanism: Optimistic Pre-Loading — How Google Loads Your Inbox in ~400ms | [Read](./Day74_Gmail_Sign_In_Optimistic_PreLoading.md) |
 
 ---
 
