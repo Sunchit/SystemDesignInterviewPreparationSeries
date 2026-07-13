@@ -89,6 +89,7 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 72 | The Resilience Stack: Layered Defense — Rate Limiter, Circuit Breaker, Bulkhead, Timeout, Retry & Fallback (Numbered ①–⑥) | [Read](./Day72_Resilience_Stack_Layered_Defense.md) |
 | 73 | The Missing Middle: HTTP QUERY Method (RFC 10008) — Safe, Cacheable Search with Request Bodies | [Read](./Day73_HTTP_QUERY_Method_RFC10008_Search_Dilemma.md) |
 | 74 | Gmail Sign-in Mechanism: Optimistic Pre-Loading — How Google Loads Your Inbox in ~400ms | [Read](./Day74_Gmail_Sign_In_Optimistic_PreLoading.md) |
+| 75 | SQL Order of Execution: Why JOIN Filter Placement (WHERE vs ON) Changes Speed and Semantics | [Read](./Day75_SQL_Order_of_Execution_JOIN_Filtering.md) |
 
 ---
 
