@@ -93,11 +93,12 @@ Whether you're walking into your first system design interview or you're the one
 | 74 | Gmail Sign-in Mechanism: Optimistic Pre-Loading — How Google Loads Your Inbox in ~400ms | [Read](./Day74_Gmail_Sign_In_Optimistic_PreLoading.md) |
 | 75 | SQL Order of Execution: Why JOIN Filter Placement (WHERE vs ON) Changes Speed and Semantics | [Read](./Day75_SQL_Order_of_Execution_JOIN_Filtering.md) |
 | 76 | Scale DB in Distributed Systems: Unique ID Strategies — Auto-Increment to Snowflake | [Read](./Day76_Scale_DB_Distributed_Systems_Unique_IDs.md) |
+| 79 | Production Database Corruption: The Architect's Incident Response Playbook | [Read](./Day79_Production_Database_Corruption_Incident_Response.md) |
 | 80 | Readiness vs Liveness Probes: The Health Check That Killed a Healthy Cluster | [Read](./Day80_Kubernetes_Readiness_Liveness_Probes.md) |
 
 ---
 
-*Days 77–79 are being written — the series jumps ahead when an incident is worth documenting before the details fade.*
+*Days 77–78 are being written — the series jumps ahead when an incident is worth documenting before the details fade.*
 
 ## 🎯 What You'll Learn
 
