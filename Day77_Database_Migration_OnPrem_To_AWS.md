@@ -1,5 +1,5 @@
 # Database Migration Strategy: From On-Premise to AWS
-### Day 78 of 50 - System Design Interview Preparation Series
+### Day 77 of 50 - System Design Interview Preparation Series
 
 **By Sunchit Dudeja**
 
