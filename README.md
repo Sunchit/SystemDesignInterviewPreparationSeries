@@ -94,12 +94,11 @@ Whether you're walking into your first system design interview or you're the one
 | 75 | SQL Order of Execution: Why JOIN Filter Placement (WHERE vs ON) Changes Speed and Semantics | [Read](./Day75_SQL_Order_of_Execution_JOIN_Filtering.md) |
 | 76 | Scale DB in Distributed Systems: Unique ID Strategies — Auto-Increment to Snowflake | [Read](./Day76_Scale_DB_Distributed_Systems_Unique_IDs.md) |
 | 77 | Database Migration Strategy: From On-Premise to AWS — CDC, Cutover & Zero Downtime | [Read](./Day77_Database_Migration_OnPrem_To_AWS.md) |
+| 78 | The Outbox Pattern: Solving the Dual-Write Problem — Order/Inventory, Kafka Relay & Idempotency | [Read](./Day78_Outbox_Pattern_Dual_Write_Problem.md) |
 | 79 | Production Database Corruption: The Architect's Incident Response Playbook | [Read](./Day79_Production_Database_Corruption_Incident_Response.md) |
 | 80 | Readiness vs Liveness Probes: The Health Check That Killed a Healthy Cluster | [Read](./Day80_Kubernetes_Readiness_Liveness_Probes.md) |
 
 ---
-
-*Day 78 is being written — the series jumps ahead when an incident is worth documenting before the details fade.*
 
 ## 🎯 What You'll Learn
 
