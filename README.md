@@ -5,9 +5,11 @@
 
 ## 🚀 Welcome!
 
-A comprehensive **50-day journey** to master System Design for tech interviews. This series covers everything from fundamental concepts to real-world system design problems asked at top tech companies like Google, Amazon, Meta, Netflix, and more.
+Every system that has ever gone down in production went down for a reason that made perfect sense on paper. A counter that couldn't know about a second database. A health check that couldn't tell "slow" from "dead." A cache that couldn't tell "empty" from "gone." **The gap between a design that compiles and a design that survives contact with real traffic is where architects actually earn their title** — and that gap is what this series is built to close.
 
-Whether you're preparing for your first tech interview or aiming for senior engineering roles, this series will transform the way you think about building scalable, reliable systems.
+This is not a syllabus of definitions. It started as a **50-day plan** and has since outgrown its own name, because production doesn't stop generating lessons on day 50 — it keeps generating them for as long as the systems stay running. What you'll find here instead is a growing field manual: real incidents, the wrong assumption that caused each one, and the mental model an architect reaches for so it doesn't happen twice. Bloom filters that guard a signup form. A liveness probe that quietly restarted a healthy cluster into an outage. A Snowflake ID scheme born because two shards both handed out `id = 1`.
+
+Whether you're walking into your first system design interview or you're the one now on the hook when the pager goes off at 3 AM, the goal is the same: **stop thinking like someone who makes the code work, and start thinking like someone who makes the system last.**
 
 ---
 
@@ -91,14 +93,18 @@ Whether you're preparing for your first tech interview or aiming for senior engi
 | 74 | Gmail Sign-in Mechanism: Optimistic Pre-Loading — How Google Loads Your Inbox in ~400ms | [Read](./Day74_Gmail_Sign_In_Optimistic_PreLoading.md) |
 | 75 | SQL Order of Execution: Why JOIN Filter Placement (WHERE vs ON) Changes Speed and Semantics | [Read](./Day75_SQL_Order_of_Execution_JOIN_Filtering.md) |
 | 76 | Scale DB in Distributed Systems: Unique ID Strategies — Auto-Increment to Snowflake | [Read](./Day76_Scale_DB_Distributed_Systems_Unique_IDs.md) |
+| 80 | Readiness vs Liveness Probes: The Health Check That Killed a Healthy Cluster | [Read](./Day80_Kubernetes_Readiness_Liveness_Probes.md) |
 
 ---
+
+*Days 77–79 are being written — the series jumps ahead when an incident is worth documenting before the details fade.*
 
 ## 🎯 What You'll Learn
 
 - **Foundational Concepts:** Client-Server Architecture, APIs, Databases, Caching
 - **Distributed Systems:** CAP Theorem, Consistency, Availability, Partitioning
 - **Scalability Patterns:** Load Balancing, Sharding, Replication
+- **Operational Resilience:** Health Checks, Circuit Breakers, Chaos Engineering, Graceful Degradation
 - **Real Interview Problems:** Design WhatsApp, Netflix, Uber, Amazon, and more
 
 ---
