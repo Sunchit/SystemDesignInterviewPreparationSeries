@@ -97,6 +97,7 @@ Whether you're walking into your first system design interview or you're the one
 | 78 | The Outbox Pattern: Solving the Dual-Write Problem — Order/Inventory, Kafka Relay & Idempotency | [Read](./Day78_Outbox_Pattern_Dual_Write_Problem.md) |
 | 79 | Production Database Corruption: The Architect's Incident Response Playbook | [Read](./Day79_Production_Database_Corruption_Incident_Response.md) |
 | 80 | Readiness vs Liveness Probes: The Health Check That Killed a Healthy Cluster | [Read](./Day80_Kubernetes_Readiness_Liveness_Probes.md) |
+| 81 | The Dead Letter Queue: How to Stop One Poison Message From Taking Down Your Pipeline | [Read](./Day81_Dead_Letter_Queue_Message_Processing_Flow.md) |
 
 ---
 
