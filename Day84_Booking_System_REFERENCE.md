@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains the **Day 84** blog post for the System Design Interview Preparation Series: *The High-Scale Booking System: Concurrency, Redis, Queues, and Preventing Double Booking.*
+This directory contains the **Day 84** blog post for the System Design Interview Preparation Series: *The Booking System Race Condition: How Millions of Concurrent Requests, Redis Atomicity, and Queues Prevent Double Booking.*
 
 The blog explores how to design a system that can handle millions of concurrent booking requests without **double-booking** the same seat.
 

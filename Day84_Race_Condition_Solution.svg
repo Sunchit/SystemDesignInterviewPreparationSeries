@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <filter id="turbulence2">
+      <feTurbulence baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bradley+Hand&display=swap');
+      .title { font-family: Bradley Hand, Comic Sans MS, cursive; font-size: 26px; font-weight: bold; fill: #1a1a1a; }
+      .section-title { font-family: Bradley Hand, Comic Sans MS, cursive; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .text { font-family: Bradley Hand, Comic Sans MS, cursive; font-size: 14px; fill: #333; }
+      .actor { font-family: Bradley Hand, Comic Sans MS, cursive; font-size: 14px; fill: #fff; font-weight: bold; }
+      .box { fill: none; stroke: #34495e; stroke-width: 2; filter: url(#turbulence2); }
+      .actor-box { fill: #3498db; stroke: #2c3e50; stroke-width: 2; filter: url(#turbulence2); }
+      .timeline { stroke: #7f8c8d; stroke-width: 1.5; stroke-dasharray: 3,3; }
+      .message { stroke: #2c3e50; stroke-width: 2; fill: none; marker-end: url(#arrow2); filter: url(#turbulence2); }
+      .success { stroke: #27ae60; stroke-width: 2.5; }
+      .error { stroke: #c0392b; stroke-width: 2.5; }
+      .note { fill: #fff8dc; stroke: #f39c12; stroke-width: 2; filter: url(#turbulence2); }
+      .note-text { font-family: Bradley Hand, Comic Sans MS, cursive; font-size: 12px; fill: #e67e22; font-weight: bold; }
+    </style>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2c3e50" />
+    </marker>
+    <marker id="arrow-success" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#27ae60" />
+    </marker>
+    <marker id="arrow-error" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#c0392b" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="35" text-anchor="middle" class="title">The Race Condition: Without Atomicity</text>
+
+  <!-- ===== LEFT SIDE: NAIVE SYSTEM ===== -->
+  <text x="300" y="70" text-anchor="middle" class="section-title">❌ NAIVE (Check → Act)</text>
+
+  <!-- Actors -->
+  <rect x="150" y="90" width="120" height="50" class="actor-box" rx="5"/>
+  <text x="210" y="120" text-anchor="middle" class="actor">User A</text>
+
+  <rect x="330" y="90" width="120" height="50" class="actor-box" rx="5"/>
+  <text x="390" y="120" text-anchor="middle" class="actor">User B</text>
+
+  <rect x="510" y="90" width="120" height="50" class="actor-box" rx="5"/>
+  <text x="570" y="120" text-anchor="middle" class="actor">Database</text>
+
+  <!-- Timelines -->
+  <line x1="210" y1="140" x2="210" y2="580" class="timeline"/>
+  <line x1="390" y1="140" x2="390" y2="580" class="timeline"/>
+  <line x1="570" y1="140" x2="570" y2="580" class="timeline"/>
+
+  <!-- Sequence 1 -->
+  <path d="M 210 170 L 570 200" class="message success" marker-end="url(#arrow-success)"/>
+  <text x="320" y="185" class="text" font-size="12">Check Seat 42</text>
+  <path d="M 570 215 L 210 245" class="message success" marker-end="url(#arrow-success)"/>
+  <text x="360" y="230" class="text" font-size="12">✓ AVAILABLE</text>
+
+  <!-- Sequence 2 -->
+  <path d="M 390 260 L 570 290" class="message success" marker-end="url(#arrow-success)"/>
+  <text x="430" y="275" class="text" font-size="12">Check Seat 42</text>
+  <path d="M 570 305 L 390 335" class="message success" marker-end="url(#arrow-success)"/>
+  <text x="430" y="320" class="text" font-size="12">✓ AVAILABLE</text>
+
+  <!-- THE RACE -->
+  <rect x="150" y="350" width="240" height="40" class="note" rx="3"/>
+  <text x="270" y="375" text-anchor="middle" class="note-text">Both see same state!</text>
+
+  <!-- Sequence 3 -->
+  <path d="M 210 400 L 570 420" class="message error" marker-end="url(#arrow-error)"/>
+  <text x="320" y="415" class="text" font-size="12" fill="#c0392b">Book Seat 42</text>
+  <path d="M 570 435 L 210 455" class="message error" marker-end="url(#arrow-error)"/>
+  <text x="320" y="450" class="text" font-size="12" fill="#27ae60">✓ SUCCESS</text>
+
+  <!-- Sequence 4 -->
+  <path d="M 390 470 L 570 490" class="message error" marker-end="url(#arrow-error)"/>
+  <text x="430" y="485" class="text" font-size="12" fill="#c0392b">Book Seat 42</text>
+  <path d="M 570 505 L 390 525" class="message error" marker-end="url(#arrow-error)"/>
+  <text x="320" y="520" class="text" font-size="12" fill="#c0392b">✓ SUCCESS</text>
+
+  <!-- Error box -->
+  <rect x="180" y="550" width="210" height="45" class="note" rx="3" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="285" y="570" text-anchor="middle" class="note-text">❌ DOUBLE BOOKED!</text>
+  <text x="285" y="585" text-anchor="middle" class="text" font-size="11" fill="#c0392b">Same seat, two owners</text>
+
+  <!-- ===== RIGHT SIDE: REDIS SOLUTION ===== -->
+  <text x="900" y="70" text-anchor="middle" class="section-title">✅ REDIS (Atomic SET-NX)</text>
+
+  <!-- Actors -->
+  <rect x="750" y="90" width="120" height="50" class="actor-box" rx="5" stroke="#27ae60" stroke-width="2.5"/>
+  <text x="810" y="120" text-anchor="middle" class="actor">User A</text>
+
+  <rect x="930" y="90" width="120" height="50" class="actor-box" rx="5" stroke="#27ae60" stroke-width="2.5"/>
+  <text x="990" y="120" text-anchor="middle" class="actor">User B</text>
+
+  <rect x="1070" y="90" width="120" height="50" class="actor-box" rx="5" stroke="#27ae60" stroke-width="2.5"/>
+  <text x="1130" y="120" text-anchor="middle" class="actor">Redis</text>
+
+  <!-- Timelines -->
+  <line x1="810" y1="140" x2="810" y2="580" class="timeline" stroke="#27ae60" stroke-width="2"/>
+  <line x1="990" y1="140" x2="990" y2="580" class="timeline" stroke="#27ae60" stroke-width="2"/>
+  <line x1="1130" y1="140" x2="1130" y2="580" class="timeline" stroke="#27ae60" stroke-width="2"/>
+
+  <!-- Sequence 1: A wins -->
+  <path d="M 810 170 L 1130 200" class="message success" marker-end="url(#arrow-success)" stroke-width="2.5"/>
+  <text x="920" y="185" class="text" font-size="12">SET seat:42 NX</text>
+  <path d="M 1130 215 L 810 245" class="message success" marker-end="url(#arrow-success)" stroke-width="2.5"/>
+  <text x="900" y="230" class="text" font-size="12" fill="#27ae60">✓ 1 (SUCCESS)</text>
+
+  <!-- Sequence 2: B loses immediately -->
+  <path d="M 990 260 L 1130 290" class="message error" marker-end="url(#arrow-error)" stroke-width="2.5"/>
+  <text x="1020" y="275" class="text" font-size="12">SET seat:42 NX</text>
+  <path d="M 1130 305 L 990 335" class="message error" marker-end="url(#arrow-error)" stroke-width="2.5"/>
+  <text x="1020" y="320" class="text" font-size="12" fill="#c0392b">✗ 0 (FAIL)</text>
+
+  <!-- Success box -->
+  <rect x="900" y="380" width="210" height="45" class="note" rx="3" stroke="#27ae60" stroke-width="2.5" fill="#e8f8f5"/>
+  <text x="1005" y="400" text-anchor="middle" class="note-text" fill="#27ae60">✓ EXACTLY ONE OWNER</text>
+  <text x="1005" y="415" text-anchor="middle" class="text" font-size="11" fill="#27ae60">Atomic operation</text>
+
+  <!-- Explanation -->
+  <rect x="800" y="460" width="310" height="90" class="box" rx="5" fill="#f0f0f0" opacity="0.5"/>
+  <text x="955" y="480" text-anchor="middle" class="section-title" font-size="14">Why This Works</text>
+  <text x="955" y="500" text-anchor="middle" class="text" font-size="12">Redis executes commands</text>
+  <text x="955" y="515" text-anchor="middle" class="text" font-size="12">sequentially on the same key.</text>
+  <text x="955" y="530" text-anchor="middle" class="text" font-size="12">Two SET-NX can't both succeed.</text>
+  <text x="955" y="545" text-anchor="middle" class="text" font-size="12">Result: guaranteed single allocation.</text>
+
+</svg>

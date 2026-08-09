@@ -1,4 +1,4 @@
-# Day 84 — The High-Scale Booking System: Concurrency, Redis, Queues, and Preventing Double Booking
+# Day 84 — The Booking System Race Condition: How Millions of Concurrent Requests, Redis Atomicity, and Queues Prevent Double Booking
 ## Why "Book Seat 42" Becomes a Distributed Systems Problem at Million-Request Scale
 
 > **Series:** System Design Interview Preparation Series  
@@ -84,6 +84,10 @@ This is the question this entire architecture is built to answer.
                                     └──────────────┘
 ```
 
+**Detailed Architecture Diagram:**
+
+![Booking System Architecture Diagram](./Day84_Booking_System_Architecture.png)
+
 Each component solves a different problem:
 - **Load Balancer** → Distribute traffic
 - **Rate Limiter** → Prevent overload
@@ -133,6 +137,10 @@ sequenceDiagram
 ```
 
 Both users observed the same state (AVAILABLE), both acted on it independently, and both succeeded. The system violated its core invariant: **one seat, one owner**.
+
+**Visual Comparison (Naive vs Redis Solution):**
+
+![Race Condition and Atomic Solution](./Day84_Race_Condition_Solution.png)
 
 > **💡 Architect's Note:** The problem isn't "the database is slow." The problem is that **CHECK** and **ACT** are two separate operations. In a distributed system, any two separate operations can race each other. The solution is to make them **atomic** — indivisible, executed as one unit.
 
