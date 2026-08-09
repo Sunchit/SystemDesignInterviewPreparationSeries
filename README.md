@@ -100,6 +100,7 @@ Whether you're walking into your first system design interview or you're the one
 | 81 | The Dead Letter Queue: How to Stop One Poison Message From Taking Down Your Pipeline | [Read](./Day81_Dead_Letter_Queue_Message_Processing_Flow.md) |
 | 82 | The Lost ACK: Why Kafka Producer Retries Create Duplicates, and How Idempotence Actually Stops Them | [Read](./Day82_Kafka_Producer_Idempotence_Lost_ACK_Duplicates.md) |
 | 83 | System Design Framework: A Repeatable Way to Attack Any Design Problem | [Read](./Day83_System_Design_Framework.md) · [Diagram](./Day83_System_Design_Framework_Notebook.png) |
+| 84 | High-Scale Booking System: Concurrency, Redis, Queues, and Preventing Double Booking | [Read](./Day84_High_Scale_Booking_System.md) |
 
 ---
 
