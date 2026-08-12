@@ -101,6 +101,7 @@ Whether you're walking into your first system design interview or you're the one
 | 82 | The Lost ACK: Why Kafka Producer Retries Create Duplicates, and How Idempotence Actually Stops Them | [Read](./Day82_Kafka_Producer_Idempotence_Lost_ACK_Duplicates.md) |
 | 83 | System Design Framework: A Repeatable Way to Attack Any Design Problem | [Read](./Day83_System_Design_Framework.md) · [Diagram](./Day83_System_Design_Framework_Notebook.png) |
 | 84 | The Booking System Race Condition: How Millions of Concurrent Requests, Redis Atomicity, and Queues Prevent Double Booking | [Read](./Day84_Booking_System_Concurrency_Redis_Queues_Double_Booking.md) · [Architecture](./Day84_Booking_System_Architecture.png) · [Race Condition](./Day84_Race_Condition_Solution.png) |
+| 85 | AWS Storage Explained Simply: S3 vs EFS vs EBS (A Senior Architect's Guide for Young Developers) | [Read](./Day85_AWS_Storage_Explained_Simply_S3_EFS_EBS.md) |
 
 ---
 
@@ -145,4 +146,3 @@ Also writing the companion series **[Learn to Think Like an Architect](https://g
 *Happy Learning!* 🎉
 
 > *"A developer makes the code work. An architect makes the system last."*
-
