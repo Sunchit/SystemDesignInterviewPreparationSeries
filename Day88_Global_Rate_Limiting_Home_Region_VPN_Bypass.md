@@ -1,4 +1,4 @@
-# Day 89 — Multi-Region Rate Limiting: Closing the VPN Bypass Gap with Home-Region Enforcement
+# Day 88 — Multi-Region Rate Limiting: Closing the VPN Bypass Gap with Home-Region Enforcement
 ## How to Enforce 300 Requests/Minute Globally When Traffic Enters from India, US, and Europe
 
 > **Series:** System Design Interview Preparation Series  
@@ -226,4 +226,4 @@ I would assign each user a stable home region and enforce that user’s quota on
 
 > **Never anchor quota to geography; anchor quota to identity and enforce through a single authoritative ownership model.**
 
-**Day 89/50 complete.**
+**Day 88/50 complete.**
