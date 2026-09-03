@@ -104,6 +104,7 @@ Whether you're walking into your first system design interview or you're the one
 | 85 | AWS Storage Explained Simply: S3 vs EFS vs EBS (A Senior Architect's Guide for Young Developers) | [Read](./Day85_AWS_Storage_Explained_Simply_S3_EFS_EBS.md) |
 | 86 | Redis as a System Design Building Block: A Senior Architect's Perspective | [Read](./Day86_Redis_As_A_System_Design_Building_Block.md) |
 | 87 | Semantic Versioning in System Design: Evolving Contracts Without Breaking Consumers | [Read](./Day87_Semantic_Versioning_System_Design.md) |
+| 89 | Multi-Region Rate Limiting: Closing the VPN Bypass Gap with Home-Region Enforcement | [Read](./Day89_Global_Rate_Limiting_Home_Region_VPN_Bypass.md) |
 
 ---
 
