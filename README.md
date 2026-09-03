@@ -106,6 +106,7 @@ Whether you're walking into your first system design interview or you're the one
 | 87 | Semantic Versioning in System Design: Evolving Contracts Without Breaking Consumers | [Read](./Day87_Semantic_Versioning_System_Design.md) |
 | 88 | Multi-Region Rate Limiting: Closing the VPN Bypass Gap with Home-Region Enforcement | [Read](./Day88_Global_Rate_Limiting_Home_Region_VPN_Bypass.md) |
 | 89 | Caching Decision Framework Every Architect Must Know: From "Should We Cache?" to "Which Cache, Where, and Why?" | [Read](./Day89_Caching_Decision_Framework_Every_Architect_Must_Know.md) |
+| 90 | Architect Caching Decision Tree: The 3 Questions Every Developer Must Learn | [Read](./Day90_Architect_Caching_Decision_Tree_Three_Questions.md) |
 
 ---
 
