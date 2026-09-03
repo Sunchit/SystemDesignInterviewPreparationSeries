@@ -105,8 +105,9 @@ Whether you're walking into your first system design interview or you're the one
 | 86 | Redis as a System Design Building Block: A Senior Architect's Perspective | [Read](./Day86_Redis_As_A_System_Design_Building_Block.md) |
 | 87 | Semantic Versioning in System Design: Evolving Contracts Without Breaking Consumers | [Read](./Day87_Semantic_Versioning_System_Design.md) |
 | 88 | Multi-Region Rate Limiting: Closing the VPN Bypass Gap with Home-Region Enforcement | [Read](./Day88_Global_Rate_Limiting_Home_Region_VPN_Bypass.md) |
-| 89 | Caching Decision Framework Every Architect Must Know: From "Should We Cache?" to "Which Cache, Where, and Why?" | [Read](./Day89_Caching_Decision_Framework_Every_Architect_Must_Know.md) |
+| 89 | Architect Database Decision Tree: Choosing the Right Database Without Guesswork | [Read](./Day89_Architect_Database_Decision_Tree.md) |
 | 90 | Architect Caching Decision Tree: The 3 Questions Every Developer Must Learn | [Read](./Day90_Architect_Caching_Decision_Tree_Three_Questions.md) |
+| 91 | Database Sharding Decision Tree for Scale and Performance | [Read](./Day91_Database_Sharding_Decision_Tree_For_Scale_And_Performance.md) |
 
 ---
 
