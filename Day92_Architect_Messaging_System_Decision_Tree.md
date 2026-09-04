@@ -28,21 +28,21 @@ Architects choose by **message pattern + delivery contract + replay need**.
 ```mermaid
 flowchart TD
     A{Need external messaging?}
-    A -->|No| A0[Use direct sync calls + retries/timeouts/circuit breakers]
+    A -->|No| A0[Use direct sync calls retries timeouts circuit breakers]
     A -->|Yes| B{Primary communication pattern?}
 
-    B -->|Point-to-point task queue| C{Need strict ordering/FIFO?}
-    B -->|Fan-out broadcast pub/sub| D{Need durable retention?}
+    B -->|Point to point task queue| C{Need strict ordering FIFO?}
+    B -->|Fanout broadcast pubsub| D{Need durable retention?}
     B -->|Internal async event reactions| E{Need replay later?}
 
     C -->|Yes| C1[SQS FIFO or RabbitMQ quorum queue]
-    C -->|No| C2[SQS Standard or RabbitMQ classic/work queues]
+    C -->|No| C2[SQS Standard or RabbitMQ work queues]
 
-    D -->|Yes| D1[Kafka (retention + consumer groups + replay)]
-    D -->|No| D2[SNS / lightweight pub-sub without long retention]
+    D -->|Yes| D1[Kafka retention consumer groups replay]
+    D -->|No| D2[SNS lightweight pubsub without long retention]
 
     E -->|Yes| E1[Kafka event log]
-    E -->|No| E2[RabbitMQ or SQS task/event queue]
+    E -->|No| E2[RabbitMQ or SQS task queue]
 ```
 
 ---
