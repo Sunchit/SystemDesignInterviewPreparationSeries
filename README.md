@@ -108,6 +108,7 @@ Whether you're walking into your first system design interview or you're the one
 | 89 | Architect Database Decision Tree: Choosing the Right Database Without Guesswork | [Read](./Day89_Architect_Database_Decision_Tree.md) |
 | 90 | Architect Caching Decision Tree: The 3 Questions Every Developer Must Learn | [Read](./Day90_Architect_Caching_Decision_Tree_Three_Questions.md) |
 | 91 | Database Sharding Decision Tree for Scale and Performance | [Read](./Day91_Database_Sharding_Decision_Tree_For_Scale_And_Performance.md) |
+| 92 | Architect’s Messaging System Decision Tree: Kafka vs RabbitMQ vs SQS vs SNS | [Read](./Day92_Architect_Messaging_System_Decision_Tree.md) |
 
 ---
 
